@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/limex/OpenSwitchMaps.git"
+    "url": "git+https://github.com/limex/OpenSwitchMaps-v3.git"
   },
   "author": "limex",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/limex/OpenSwitchMaps/issues"
+    "url": "https://github.com/limex/OpenSwitchMaps-v3/issues"
   },
-  "homepage": "https://github.com/limex/OpenSwitchMaps#readme",
+  "homepage": "https://github.com/limex/OpenSwitchMaps-v3#readme",
   "devDependencies": {
-    "@parcel/transformer-vue": "^2.8.3",
+    "@parcel/transformer-vue": "^2.9.3",
     "@types/chrome": "^0.0.243",
     "@types/lodash": "^4.14.197",
     "@types/webextension-polyfill": "^0.10.0",
@@ -25,12 +25,12 @@
     "vue-template-compiler": "^2.7.14"
   },
   "dependencies": {
-    "@parcel/config-webextension": "^2.8.3",
+    "@parcel/config-webextension": "^2.9.3",
     "lodash": "^4.17.21",
-    "ol": "*",
-    "parcel": "^2.8.3",
+    "ol": "^7.5.1",
+    "parcel": "^2.9.3",
     "vue": "^2.7.14",
-    "vue-hot-reload-api": "*",
+    "vue-hot-reload-api": "^2.3.4",
     "webextension-polyfill": "^0.10.0"
   }
 }

@@ -3,7 +3,7 @@ export default {
   name: "OpenSwitchMaps_limex",
   version: "1.4.84",
   description: "Switch map services and Tools for OpenStreetMap contributors",
-  homepage_url: "https://github.com/limex/OpenSwitchMaps",
+  homepage_url: "https://github.com/limex/OpenSwitchMaps-v3",
   permissions: ["activeTab", "tabs", "storage"],
   background: {
     service_worker: "background.ts",

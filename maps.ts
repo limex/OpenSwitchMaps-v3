@@ -1866,7 +1866,7 @@ const maps_raw = [
     domain: "osm-analytics.org",
     description: "Analyse when/who edited the OSM data in a specific region",
     getUrl(lat, lon, zoom) {
-      [minlon, minlat, maxlon, maxlat] = latLonZoomToBbox(lat, lon, zoom);
+      let [minlon, minlat, maxlon, maxlat] = latLonZoomToBbox(lat, lon, zoom);
       return (
         "http://osm-analytics.org/#/show/bbox:" +
         minlon +
@@ -1885,7 +1885,7 @@ const maps_raw = [
       );
       if (match) {
         let [, minlon, minlat, maxlon, maxlat] = match;
-        [lat, lon, zoom] = bboxToLatLonZoom(minlon, minlat, maxlon, maxlat);
+        let [lat, lon, zoom] = bboxToLatLonZoom(minlon, minlat, maxlon, maxlat);
         return [lat, lon, zoom];
       }
     },
@@ -2213,7 +2213,7 @@ const maps_raw = [
       const match2 = decoded.match(
         /\"mapposition\":\[\[(-?\d[0-9.]*),(-?\d[0-9.]*)\],\[(-?\d[0-9.]*),(-?\d[0-9.]*)\]\]/
       );
-      let match = false;
+      let match = [];
       if (match1) match = match1;
       if (match2) match = match2;
       if (match) {
@@ -2444,7 +2444,7 @@ const maps_raw = [
         /peakvisor\.com\/.*?lat=(-?\d[0-9.]*)&lng=(-?\d[0-9.]*)/
       );
       if (match) {
-        let [, lat, lng] = match;
+        let [, lat, lon] = match;
         return [lat, lon, 13];
       }
     },
