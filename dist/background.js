@@ -1,0 +1,2 @@
+JSON.parse('{"manifest_version":3,"name":"OpenSwitchMaps_limex","version":"1.4.84","description":"Switch map services and Tools for OpenStreetMap contributors","homepage_url":"https://github.com/limex/OpenSwitchMaps","permissions":["activeTab","tabs","storage"],"background":{"service_worker":"background.ts","type":"module"},"action":{"default_popup":"popup.html","default_icon":{"128":"icon128.png"}},"icons":{"128":"icon128.png"},"options_ui":{"page":"options.html"}}');
+//# sourceMappingURL=background.js.map

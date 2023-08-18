@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    // other compiler options...
+  },
+  "include": [
+    "**/*"
+  ]
+}
