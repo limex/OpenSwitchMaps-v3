@@ -1,36 +1,32 @@
 {
-  "name": "openswitchmaps_limex",
-  "version": "1.4.84",
+  "name": "openswitchmapslimex",
+  "version": "1.4.93",
   "description": "Switch map services and Tools for OpenStreetMap contributors",
   "scripts": {
-    "dev": "parcel watch manifest.json",
-    "build": "parcel build manifest.json --config @parcel/config-webextension"
+    "dev": "parcel watch src/manifest.json",
+    "build": "parcel build src/manifest.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/limex/OpenSwitchMaps-v3.git"
+    "url": "git+https://github.com/limex/OpenSwitchMaps.git"
   },
   "author": "limex",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/limex/OpenSwitchMaps-v3/issues"
+    "url": "https://github.com/limex/OpenSwitchMaps/issues"
   },
-  "homepage": "https://github.com/limex/OpenSwitchMaps-v3#readme",
+  "homepage": "https://github.com/limex/OpenSwitchMaps#readme",
   "devDependencies": {
-    "@parcel/transformer-vue": "^2.9.3",
-    "@types/chrome": "^0.0.243",
-    "@types/lodash": "^4.14.197",
-    "@types/webextension-polyfill": "^0.10.0",
-    "@vue/component-compiler-utils": "*",
-    "vue-template-compiler": "*"
+    "@vue/component-compiler-utils": "^3.1.2",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-web-extension": "^1.6.1",
+    "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
-    "@parcel/config-webextension": "^2.9.3",
-    "lodash": "^4.17.21",
-    "ol": "^7.5.1",
-    "parcel": "*",
-    "vue": "^3.3.4",
-    "vue-hot-reload-api": "*",
-    "webextension-polyfill": "*"
+    "lodash": "^4.17.20",
+    "ol": "^6.3.1",
+    "vue": "^2.6.11",
+    "vue-hot-reload-api": "^2.3.4",
+    "webextension-polyfill": "^0.6.0"
   }
 }

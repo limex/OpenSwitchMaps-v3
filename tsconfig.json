@@ -1,11 +1,5 @@
 {
-  "compilerOptions": {
-    "target": "ES2021",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
-    // other compiler options...
-  },
-  "types": ["chrome", "@types/chrome"],
-
-  "include": ["**/*"]
+    "include": [
+        "**/*"
+    ],   
 }
