@@ -29,21 +29,19 @@
   </div>
 </template>
 <script>
-const _ = require('lodash');
-const storage = require('./storage');
-const {getAllMaps} = require('../maps');
+import { groupBy } from 'lodash';
+import './storage';
+import '../maps';
 
-module.exports = {
-  data() {
-    return {
-      columns: _.groupBy(getAllMaps(), 'category'),
-      enabledMaps: storage.observableEnabledMaps,
-    };
-  },
-  methods: {
-    setMapEnabled(map, enabled) {
-      storage.setMapEnabled(map, enabled);
-    },
+export function data() {
+  return {
+    columns: groupBy(getAllMaps(), 'category'),
+    enabledMaps: observableEnabledMaps,
+  };
+}
+export const methods={
+  setMapEnabled(map, enabled) {
+    _setMapEnabled(map, enabled);
   },
 };
 </script>

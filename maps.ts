@@ -6,15 +6,16 @@ export default {
   getLatLonZoom,
 };
 
-function getAllMaps() {
+function getAllMaps():any {
   return maps;
 }
 
-function isMatchingAMap(url: string): boolean {
+
+function isMatchingAMap(url: string):any {
   return _.some(maps, (map) => _.invoke(map, "getLatLonZoom", url));
 }
 
-function getLatLonZoom(url) {
+function getLatLonZoom(url: any):any {
   const map = _.find(maps, (map) => _.invoke(map, "getLatLonZoom", url));
   if (map) {
     return map.getLatLonZoom(url);

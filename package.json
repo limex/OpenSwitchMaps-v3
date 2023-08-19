@@ -21,16 +21,16 @@
     "@types/chrome": "^0.0.243",
     "@types/lodash": "^4.14.197",
     "@types/webextension-polyfill": "^0.10.0",
-    "@vue/component-compiler-utils": "^3.3.0",
-    "vue-template-compiler": "^2.7.14"
+    "@vue/component-compiler-utils": "*",
+    "vue-template-compiler": "*"
   },
   "dependencies": {
     "@parcel/config-webextension": "^2.9.3",
     "lodash": "^4.17.21",
     "ol": "^7.5.1",
-    "parcel": "^2.9.3",
-    "vue": "^2.7.14",
-    "vue-hot-reload-api": "^2.3.4",
-    "webextension-polyfill": "^0.10.0"
+    "parcel": "*",
+    "vue": "^3.3.4",
+    "vue-hot-reload-api": "*",
+    "webextension-polyfill": "*"
   }
 }

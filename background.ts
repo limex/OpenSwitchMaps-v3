@@ -1,9 +1,5 @@
-// import isMatchingAMap from './maps';
-import 'chrome';
+import isMatchingAMap from './maps';
 
-function isMatchingAMap(url: string):boolean {
-  throw new Error('Function not implemented.');
-}
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   if (isMatchingAMap(tab.url)) {
@@ -12,4 +8,5 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     chrome.pageAction.hide(tabId);
   }
 });
+
 
