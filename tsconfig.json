@@ -1,5 +1,5 @@
 {
-    "include": [
-        "**/*"
-    ],   
+  "include": [
+    "src/**/*" // modify this path according to your project structure
+  ]
 }
