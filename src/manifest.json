@@ -6,13 +6,21 @@
   "permissions": [
     "activeTab",
     "tabs",
+    "scripting",
     "storage"
   ],
+  "minimum_chrome_version": "93",
   "background": {
     "service_worker": "background.js",
     "type" : "module"
   },
-  "page_action": {
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["background.js"]
+    }
+  ],
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "128": "icon128.png"

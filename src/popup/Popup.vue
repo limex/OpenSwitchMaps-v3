@@ -66,7 +66,7 @@ module.exports = {
           const [lat, lon, zoom] = getLatLonZoom(tab.url);
           const mapUrl = map.getUrl(lat, lon, zoom);
           const code = getCode(mapUrl);
-          chrome.tabs.executeScript(tab.id, { code });
+          chrome.scripting.executeScript({ target: { tabId:tab.id }, code });
           window.close();
         }
       );
