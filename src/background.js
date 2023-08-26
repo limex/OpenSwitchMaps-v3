@@ -1,4 +1,4 @@
-const {isMatchingAMap} = require('./maps');
+import isMatchingAMap from './maps';
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   if (isMatchingAMap(tab.url)) {

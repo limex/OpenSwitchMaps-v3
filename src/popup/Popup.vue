@@ -27,9 +27,9 @@
   </div>
 </template>
 <script>
-const _ = require("lodash");
+import 'lodash';
 const browser = require("webextension-polyfill");
-const { getLatLonZoom, getAllMaps } = require("../maps");
+import "../maps";
 const storage = require("../options/storage");
 
 module.exports = {

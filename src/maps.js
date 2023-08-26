@@ -1,6 +1,6 @@
-const _ = require("lodash");
+import { some, invoke, find } from "lodash";
 
-module.exports = {
+export default {
   getAllMaps,
   isMatchingAMap,
   getLatLonZoom,
@@ -11,11 +11,11 @@ function getAllMaps() {
 }
 
 function isMatchingAMap(url) {
-  return _.some(maps, (map) => _.invoke(map, "getLatLonZoom", url));
+  return some(maps, (map) => invoke(map, "getLatLonZoom", url));
 }
 
 function getLatLonZoom(url) {
-  const map = _.find(maps, (map) => _.invoke(map, "getLatLonZoom", url));
+  const map = find(maps, (map) => invoke(map, "getLatLonZoom", url));
   if (map) {
     return map.getLatLonZoom(url);
   }

@@ -1,7 +1,7 @@
 const browser = require("webextension-polyfill");
 const _ = require('lodash');
 const Vue = require('vue').default;
-const {getAllMaps} = require('../maps');
+import getAllMaps from'../maps';
 
 const storage = browser.storage;
 const storageArea = storage.sync || storage.local;
@@ -21,6 +21,7 @@ init();
 
 module.exports = {
   init,
+  storage,
   observableEnabledMaps: enabledMaps,
   setMapEnabled,
 };

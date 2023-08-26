@@ -1,4 +1,3 @@
-const Vue = require('vue').default;
-const Options = require('./Options.vue');
-
-new Vue(Options).$mount('#options');
+const Vue = require('vue').default; 
+  import Options from './Options.vue';
+new Vue(Options).$mount("#options");

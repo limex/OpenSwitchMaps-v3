@@ -3,7 +3,7 @@
   "version": "3.4.93",
   "description": "Switch map services and Tools for OpenStreetMap contributors",
   "scripts": {
-    "dev": "parcel watch arc/manifest.json --config @parcel/config-webextension",
+    "dev": "parcel watch src/manifest.json",
     "build": "parcel build src/manifest.json"
   },
   "repository": {
@@ -17,18 +17,20 @@
   },
   "homepage": "https://github.com/limex/OpenSwitchMaps#readme",
   "devDependencies": {
+    "@parcel/transformer-vue": "^2.9.3",
     "@types/chrome": "^0.0.243",
-    "@vue/component-compiler-utils": "^3.1.2",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-web-extension": "^1.6.1",
-    "vue-template-compiler": "^2.6.11"
+    "@types/lodash": "^4.14.197",
+    "@types/node": "^20.5.6",
+    "parcel": "^2.9.3",
+    "parcel-plugin-web-extension": "^1.6.1"
   },
   "dependencies": {
+    "@parcel/config-webextension": "^2.9.3",
     "eslint": "^8.47.0",
     "lodash": "^4.17.20",
-    "ol": "^6.3.1",
-    "vue": "^2.6.11",
+    "ol": "^7.5.1",
+    "vue": "^3.3.4",
     "vue-hot-reload-api": "^2.3.4",
-    "webextension-polyfill": "^0.6.0"
+    "webextension-polyfill": "^0.10.0"
   }
 }

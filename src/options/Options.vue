@@ -28,20 +28,20 @@
     </div>
   </div>
 </template>
-<script>
-const _ = require('lodash');
+<script lang="ts">
+import _ = require('lodash');
 const storage = require('./storage');
-const {getAllMaps} = require('../maps');
+import getAllMaps from '../maps';
 
-module.exports = {
+export default {
   data() {
     return {
-      columns: _.groupBy(getAllMaps(), 'category'),
+      columns: _.groupBy(this.getAllMaps(), 'category'),
       enabledMaps: storage.observableEnabledMaps,
     };
   },
   methods: {
-    setMapEnabled(map, enabled) {
+    setMapEnabled(map: any, enabled:any) {
       storage.setMapEnabled(map, enabled);
     },
   },
