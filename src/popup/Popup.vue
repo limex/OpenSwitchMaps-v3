@@ -26,7 +26,7 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
 import 'lodash';
 const browser = require("webextension-polyfill");
 import "../maps";
