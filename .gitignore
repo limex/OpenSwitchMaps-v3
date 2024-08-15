@@ -1,0 +1,6 @@
+/.cache/
+/node_modules/
+.vscode/settings.json
+.vscode/launch.json
+/deploy/
+dist/.DS_Store
