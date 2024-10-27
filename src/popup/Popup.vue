@@ -1,3 +1,85 @@
+<script>
+import { computed } from 'vue'
+import _ from 'lodash'
+import browser from 'webextension-polyfill'
+import { getLatLonZoom, getAllMaps } from '../maps'
+import storage from '../options/storage'
+
+export default {
+  setup() {
+    const columns = computed(() => {
+      const enabledMaps = _.filter(
+        getAllMaps(),
+        (map) => storage.observableEnabledMaps[map.name]
+      )
+      return _.groupBy(enabledMaps, 'category')
+    })
+
+    async function openMapInCurrentTab(map) {
+      try {
+        const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        const [lat, lon, zoom] = getLatLonZoom(tab.url);
+        const mapUrl = map.getUrl(lat, lon, zoom);
+        const code = `window.location.href = ${JSON.stringify(mapUrl)};`;
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          func: (code) => { eval(code); },
+          args: [code]
+        });
+        window.close();
+      } catch (error) {
+        console.error('Error opening map:', error);
+      }
+    }
+
+    async function openMapInOtherTab(map) {
+      try {
+        const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        const [lat, lon, zoom] = getLatLonZoom(tab.url);
+        const mapUrl = map.getUrl(lat, lon, zoom);
+        const code = `window.open(${JSON.stringify(mapUrl)});`;
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          func: (code) => { eval(code); },
+          args: [code]
+        });
+        window.close();
+      } catch (error) {
+        console.error('Error opening map:', error);
+      }
+    }
+
+    async function open(map, getCode) {
+      try {
+        const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        const [lat, lon, zoom] = getLatLonZoom(tab.url);
+        const mapUrl = map.getUrl(lat, lon, zoom);
+        const code = getCode(mapUrl);
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          func: (code) => { eval(code); },
+          args: [code]
+        });
+        window.close();
+      } catch (error) {
+        console.error('Error opening map:', error);
+      }
+    }
+
+    function openOptionsPage() {
+      browser.runtime.openOptionsPage()
+    }
+
+    return {
+      columns,
+      openMapInCurrentTab,
+      openMapInOtherTab,
+      openOptionsPage
+    }
+  }
+}
+</script>
+
 <template>
   <div id="mapmenu">
     <span class="options-link" @click="openOptionsPage">⚙</span>
@@ -26,57 +108,7 @@
     </div>
   </div>
 </template>
-<script>
-const _ = require("lodash");
-const browser = require("webextension-polyfill");
-const { getLatLonZoom, getAllMaps } = require("../maps");
-const storage = require("../options/storage");
 
-module.exports = {
-  computed: {
-    columns() {
-      const enabledMaps = _.filter(
-        getAllMaps(),
-        (map) => storage.observableEnabledMaps[map.name]
-      );
-      return _.groupBy(enabledMaps, "category");
-    },
-  },
-  methods: {
-    openMapInCurrentTab(map) {
-      this.open(
-        map,
-        (mapUrl) => "window.location.href =" + JSON.stringify(mapUrl) + ";"
-      );
-    },
-    openMapInOtherTab(map) {
-      this.open(
-        map,
-        (mapUrl) => "window.open(" + JSON.stringify(mapUrl) + ");"
-      );
-    },
-    open(map, getCode) {
-      chrome.tabs.query(
-        {
-          active: true,
-          currentWindow: true,
-        },
-        function(tabs) {
-          const tab = tabs[0];
-          const [lat, lon, zoom] = getLatLonZoom(tab.url);
-          const mapUrl = map.getUrl(lat, lon, zoom);
-          const code = getCode(mapUrl);
-          chrome.tabs.executeScript(tab.id, { code });
-          window.close();
-        }
-      );
-    },
-    openOptionsPage() {
-      browser.runtime.openOptionsPage();
-    },
-  },
-};
-</script>
 <style>
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -177,3 +209,4 @@ p.column:hover {
   width: 100px;
 }
 </style>
+
