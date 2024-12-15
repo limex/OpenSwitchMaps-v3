@@ -28,32 +28,25 @@
     </div>
   </div>
 </template>
-
 <script>
-import { reactive, computed } from 'vue'
-import _ from 'lodash'
-import storage from './storage'
-import { getAllMaps } from '../maps'
+const _ = require('lodash');
+const storage = require('./storage');
+const {getAllMaps} = require('../maps');
 
-export default {
-  setup() {
-    const enabledMaps = reactive(storage.observableEnabledMaps)
-
-    const columns = computed(() => _.groupBy(getAllMaps(), 'category'))
-
-    function setMapEnabled(map, enabled) {
-      storage.setMapEnabled(map, enabled)
-    }
-
+module.exports = {
+  data() {
     return {
-      columns,
-      enabledMaps,
-      setMapEnabled
-    }
-  }
-}
+      columns: _.groupBy(getAllMaps(), 'category'),
+      enabledMaps: storage.observableEnabledMaps,
+    };
+  },
+  methods: {
+    setMapEnabled(map, enabled) {
+      storage.setMapEnabled(map, enabled);
+    },
+  },
+};
 </script>
-
 <style>
   body {
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;

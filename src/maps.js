@@ -1,16 +1,25 @@
-import _ from 'lodash';
+const _ = require("lodash");
 
-export const getAllMaps = () => maps;
-export const isMatchingAMap = (url) => _.some(maps, (map) => _.invoke(map, "getLatLonZoom", url));
-export const getLatLonZoom = (url) => {
+module.exports = {
+  getAllMaps,
+  isMatchingAMap,
+  getLatLonZoom,
+};
+
+function getAllMaps() {
+  return maps;
+}
+
+function isMatchingAMap(url) {
+  return _.some(maps, (map) => _.invoke(map, "getLatLonZoom", url));
+}
+
+function getLatLonZoom(url) {
   const map = _.find(maps, (map) => _.invoke(map, "getLatLonZoom", url));
   if (map) {
     return map.getLatLonZoom(url);
   }
-};
-
-// Expose the isMatchingAMap function globally
-self.isMatchingAMap = isMatchingAMap;
+}
 
 // add full content of maps.js from openswitchmaps repo here below this line 
 
@@ -331,7 +340,7 @@ const maps_raw = [
     },
   },
   {
-    // https://waterwaymap.org/#map=9.04/46.7192/16.3936&tiles=planet-waterway-name-group-name&len=5..inf
+    // https://waterwaymap.org/#map=9.04/46.7192/17.3936&tiles=planet-waterway-name-group-name&len=5..inf
     name: "WaterWayMap",
     category: WATER_CATEGORY,
     default_check: true,
@@ -1420,6 +1429,237 @@ const maps_raw = [
     },
   },
   {
+    // https://www.meteoblue.com/en/weather/webmap/?mapcenter=-49.7529N-4.6143&zoom=4
+    // https://www.meteoblue.com/en/weather/webmap/46.915N15.024E1464_Europe%2FVienna?variable=precipitation3h_cloudcover_pressure&level=surface&lines=none&mapcenter=43.6619N16.5502&zoom=10
+    name: "Meteoblue",
+    category: WEATHER_CATEGORY,
+    description: "7d Forecast, Maps Wind, Snow, Waves, Rain, ...",
+    default_check: true,
+    domain: "meteoblue.com",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://www.meteoblue.com/en/weather/webmap/?mapcenter=" +
+        lat +
+        "N" +
+        lon +
+        "&zoom=" +
+        zoom
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /meteoblue\.com\/.*?mapcenter=(-?\d[0-9.]*)N(-?\d[0-9.]*)&zoom=(\d{1,2})/
+      );
+      if (match) {
+        let [, lat, lon, zoom] = match;
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
+    name: "Meteoblue Multi",
+    category: WEATHER_CATEGORY,
+    description: "Multi Model 7d Forecast",
+    default_check: true,
+    domain: "meteoblue.com",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://www.meteoblue.com/en/weather/forecast/multimodel/" +
+        lat +
+        "N" +
+        lon +
+        "E"
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /meteoblue\.com\/.*multimodel\/(-?\d[0-9.]*)[NS](-?\d[0-9.]*)[EW]/
+      );
+      if (match) {
+        let [, lat, lon] = match;
+        return [lat, lon, 12];
+      }
+    },
+  },
+  {
+    name: "Windy",
+    category: WEATHER_CATEGORY,
+    description: "WebCams on WeatherMap",
+    default_check: true,
+    domain: "windy.com",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://www.windy.com/webcams/map?" + lat + "," + lon + "," + zoom
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /windy\.com.*\/webcams\/.*\?(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2}),/
+      );
+      if (match) {
+        let [, lat, lon, zoom] = match;
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
+    // https://www.bergfex.at/?mapstate=47.091212,15.260954,11,o,430,47.420654,13.1286
+    name: "Bergfex",
+    category: OUTDOOR_CATEGORY,
+    description: "Topo, Tracks, Tourism",
+    default_check: true,
+    domain: "bergfex.at",
+    getUrl(lat, lon, zoom) {
+      const [minlon, minlat, maxlon, maxlat] = latLonZoomToBbox(lat, lon, zoom);
+      return (
+        "https://www.bergfex.at?mapstate=" +
+        minlat +
+        "," +
+        minlon +
+        "," +
+        zoom +
+        ",o,430," +
+        maxlat +
+        "," +
+        maxlon
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /bergfex\.at\/.*\?mapstate=?(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2}),/
+      );
+      if (match) {
+        let [, lat, lon, zoom] = match;
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
+    // https://www.4umaps.com/map.htm?zoom=14&lat=46.72587&lon=14.46407&layers=B00
+    name: "4umaps",
+    category: OUTDOOR_CATEGORY,
+    description: "Topo, Trail difficulty",
+    default_check: false,
+    domain: "4umaps.com",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://www.4umaps.com/map.htm?zoom=" +
+        zoom +
+        "&lat=" +
+        lat +
+        "&lon=" +
+        lon +
+        "&layers=B00"
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /4umaps\.com\/map.htm\?zoom=(\d{1,2})&lat=(-?\d[0-9.]*)&lon=(-?\d[0-9.]*)&layers=B00/
+      );
+      if (match) {
+        let [, zoom, lat, lon] = match;
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
+    name: "BigMap 2 (Print)",
+    category: TOOLS_CATEGORY,
+    default_check: false,
+    domain: "osmz.ru",
+    description: "Obtain a composed big map image",
+    getUrl(lat, lon, zoom) {
+      return (
+        "http://bigmap.osmz.ru/index.html#map=" + zoom + "/" + lat + "/" + lon
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /bigmap\.osmz\.ru.*#map=(\d{1,2})\/(-?\d[0-9.]*)\/(-?\d[0-9.]*)/
+      );
+      if (match) {
+        let [, zoom, lat, lon] = match;
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
+    name: "Satellite Tracker 3D",
+    category: POI_CATEGORY,
+    default_check: false,
+    domain: "stdkmd.net",
+    description: "Satellite tracker",
+    getUrl(lat, lon, zoom) {
+      const d = Math.round(Math.exp((Number(zoom) - 17.7) / -1.4));
+      return (
+        "https://stdkmd.net/sat/?cr=" + d + "&lang=en&ll=" + lat + "%2C" + lon
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /stdkmd\.net\/sat\/\?cr=(\d{1,2}).*&ll=(-?\d[0-9.]*)%2C(-?\d[0-9.]*)/
+      );
+      if (match) {
+        let [, zoom, lat, lon] = match;
+        return [lat, lon, 15];
+      }
+    },
+  },
+  {
+    name: "earth",
+    category: WEATHER_CATEGORY,
+    default_check: true,
+    domain: "earth.nullschool.net",
+    description: "Wind, Ocean, Chem, Particulates",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://earth.nullschool.net/#current/wind/surface/level/orthographic=" +
+        lon +
+        "," +
+        lat +
+        "," +
+        11.1 * zoom ** 3.12
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /earth\.nullschool\.net.*orthographic=(-?\d[0-9.]*),(-?\d[0-9.]*),(\d[0-9]*)/
+      );
+      if (match) {
+        let [, lon, lat, zoom] = match;
+        zoom = Math.round((zoom / 11.1) ** (1 / 3.12));
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
+    name: "Windy.com",
+    category: WEATHER_CATEGORY,
+    default_check: true,
+    domain: "windy.com",
+    description: "Wind, Ocean, Chem, Particulates",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://www.windy.com/?" +
+        Number(lat).toFixed(3) +
+        "," +
+        Number(lon).toFixed(3) +
+        "," +
+        Math.round(zoom) +
+        ",i:pressure"
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /www\.windy\.com.*[,\?](-?\d[0-9.]+),(-?\d[0-9.]+),(\d{1,2})/
+      );
+      if (match) {
+        const [, lat, lon, zoom] = match;
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
     name: "flightradar24",
     category: POI_CATEGORY,
     default_check: false,
@@ -2170,6 +2410,33 @@ const maps_raw = [
     },
   },
   {
+    //https://resultmaps.neis-one.org/osm-change-tiles#14/35.6726/139.7576
+    name: "Latest OSM Edits per Tile",
+    category: OSM_CATEGORY,
+    default_check: false,
+    domain: "neis-one.org",
+    description: "Latest OpenStreetMap Edits per Tile",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://resultmaps.neis-one.org/osm-change-tiles#" +
+        zoom +
+        "/" +
+        lat +
+        "/" +
+        lon
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /resultmaps\.neis-one\.org\/osm-change-tiles#(\d[0-9.]*)\/(-?\d[0-9.]*)\/(-?\d[0-9.]*)/
+      );
+      if (match) {
+        const [, zoom, lat, lon] = match;
+        return [lat, lon, Math.round(Number(zoom))];
+      }
+    },
+  },
+  {
     //https://www.viamichelin.com/web/maps?position=35;135.8353;12
     name: "ViaMichelin",
     category: ROUTER_CATEGORY,
@@ -2325,6 +2592,33 @@ const maps_raw = [
     getLatLonZoom(url) {
       const match = url.match(
         /map\.openseamap\.org\/\?zoom=(\d{1,2})&lat=(-?\d[0-9.]*)&lon=(-?\d[0-9.]*)/
+      );
+      if (match) {
+        let [, zoom, lat, lon] = match;
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
+    // https://fishing-app.gpsnauticalcharts.com/i-boating-fishing-web-app/fishing-marine-charts-navigation.html#15.87/45.7047/13.7082
+    name: "i-boating",
+    category: WATER_CATEGORY,
+    default_check: true,
+    domain: "gpsnauticalcharts.com",
+    description: "Marine charts",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://fishing-app.gpsnauticalcharts.com/i-boating-fishing-web-app/fishing-marine-charts-navigation.html#" +
+        zoom +
+        "/" +
+        lat +
+        "/" +
+        lon
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /fishing-app\.gpsnauticalcharts\.com\/i-boating-fishing-web-app\/fishing-marine-charts-navigation.html#(\d[0-9.]*)\/(-?\d[0-9.]*)\/(-?\d[0-9.]*)/
       );
       if (match) {
         let [, zoom, lat, lon] = match;

@@ -1,10 +1,3 @@
-# OpenSwitchMaps V3
-
-this is the manifest v3 port of the extension https://github.com/limex/OpenSwitchMaps running under manifest v2.
-Currently this repo is NOT WORKING.
-
-If you want to assist, please do so as the code is currently bitching. It is not just changing some simple settings.
-
 # OpenSwitchMaps
 
 Map service switcher for Chrome/Firefox extension

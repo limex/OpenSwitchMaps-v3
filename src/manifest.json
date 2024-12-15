@@ -1,19 +1,20 @@
 {
-  "name": "OpenSwitchMaps_limex",
+  "name": "OpenSwitchMaps_limex_v3",
   "version": "1.6.39",
   "description": "Switch map services and Tools for OpenStreetMap contributors",
   "homepage_url": "https://github.com/limex/OpenSwitchMaps",
   "permissions": [
     "activeTab",
+    "tabs",
     "storage",
     "scripting"
   ],
   "host_permissions": [
-    "<all_urls>"
+    "https://*/",
+    "http://*/"
   ],
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "service_worker": "background.js"
   },
   "action": {
     "default_popup": "popup.html",
@@ -25,11 +26,10 @@
     "128": "icon128.png"
   },
   "options_ui": {
-    "page": "options.html",
-    "open_in_tab": true
+    "page": "options.html"
   },
   "manifest_version": 3,
   "content_security_policy": {
-    "extension_pages": "script-src 'self' https://unpkg.com; object-src 'self'"
+    "extension_pages": "script-src 'self'; object-src 'self'"
   }
 }
