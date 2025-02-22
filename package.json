@@ -1,10 +1,11 @@
 {
   "name": "openswitchmapslimex",
-  "version": "1.6.71",
+  "version": "1.6.79",
   "description": "Switch map services and Tools for OpenStreetMap contributors",
   "scripts": {
     "dev": "parcel watch src/manifest.json src/popup.html src/options.html src/background.js",
-    "build": "rm -rf dist && sh inc_patch.sh && parcel build src/manifest.json src/popup.html src/options.html src/background.js && node deploy.js"
+    "build": "rm -rf dist && sh inc_patch.sh && parcel build src/manifest.json src/popup.html src/options.html src/background.js && cp src/icon128.png dist/ && cp src/icon128-no.png dist/ && node deploy.js",
+    "postbuild": "cp src/icon128.png dist/ && cp src/icon128-no.png dist/"
   },
   "repository": {
     "type": "git",
