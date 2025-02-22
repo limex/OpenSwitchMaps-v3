@@ -29,14 +29,14 @@
   </div>
 </template>
 <script>
-const _ = require('lodash');
+import { groupBy } from 'lodash-es';
 const storage = require('./storage');
-const {getAllMaps} = require('../maps');
+const { getAllMaps } = require('../maps');
 
 module.exports = {
   data() {
     return {
-      columns: _.groupBy(getAllMaps(), 'category'),
+      columns: groupBy(getAllMaps(), 'category'),
       enabledMaps: storage.observableEnabledMaps,
     };
   },
@@ -46,6 +46,14 @@ module.exports = {
     },
   },
 };
+
+chrome.storage.local.get(['key'], (result) => {
+  // ...existing code...
+});
+
+chrome.storage.local.set({ key: value }, () => {
+  // ...existing code...
+});
 </script>
 <style>
   body {

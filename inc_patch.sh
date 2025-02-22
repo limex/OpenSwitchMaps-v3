@@ -11,7 +11,7 @@ a=(${version//./ })
 ((a[2]++))
 new_version="${a[0]}.${a[1]}.${a[2]}"
 
-echo "Version updated from $version to $new_version"
+echo -e "Version updated from $version to \033[1;33m$new_version\033[0m"
 echo "Write to $manifest_file" 
 
 # sed -i "s/\"version\": \"$version\"/\"version\": \"$new_version\"/g" $manifest_file

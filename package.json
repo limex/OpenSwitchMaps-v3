@@ -1,6 +1,6 @@
 {
   "name": "openswitchmapslimex",
-  "version": "1.6.39",
+  "version": "1.6.55",
   "description": "Switch map services and Tools for OpenStreetMap contributors",
   "scripts": {
     "dev": "parcel watch src/manifest.json src/popup.html src/options.html src/background.js",
@@ -24,10 +24,9 @@
   },
   "dependencies": {
     "bindings": "^1.5.0",
-    "lodash": "^4.17.20",
+    "lodash-es": "^4.17.21",
     "ol": "^6.3.1",
     "vue": "^2.6.11",
-    "vue-hot-reload-api": "^2.3.4",
-    "webextension-polyfill": "^0.6.0"
+    "vue-hot-reload-api": "^2.3.4"
   }
 }

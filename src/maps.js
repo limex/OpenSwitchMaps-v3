@@ -1,4 +1,4 @@
-const _ = require("lodash");
+import { debounce, filter, groupBy, some, invoke, find } from 'lodash-es';
 
 module.exports = {
   getAllMaps,
@@ -11,11 +11,11 @@ function getAllMaps() {
 }
 
 function isMatchingAMap(url) {
-  return _.some(maps, (map) => _.invoke(map, "getLatLonZoom", url));
+  return some(maps, (map) => invoke(map, "getLatLonZoom", url));
 }
 
 function getLatLonZoom(url) {
-  const map = _.find(maps, (map) => _.invoke(map, "getLatLonZoom", url));
+  const map = find(maps, (map) => invoke(map, "getLatLonZoom", url));
   if (map) {
     return map.getLatLonZoom(url);
   }
@@ -2834,26 +2834,6 @@ const maps_raw = [
     },
   },
   {
-    // https://api.maptiler.com/maps/874645db-d9b7-4abe-be15-86beea6b922e/?key=dWJtt6xXsxoSfRCqIovk#14.7/47.04154/15.52717
-    name: "MTB-Gravel",
-    category: CYCLING_CATEGORY,
-    default_check: true,
-    domain: "osmand.net",
-    description: "marked: private, no bike access, trails",
-    getUrl(lat, lon, zoom) {
-      return `https://api.maptiler.com/maps/874645db-d9b7-4abe-be15-86beea6b922e/?key=dWJtt6xXsxoSfRCqIovk#${zoom}/${lat}/${lon}`;
-    },
-    getLatLonZoom(url) {
-      const match = url.match(
-        /maptiler\.com\/maps\/.*#(-?\d[0-9.]*)\/(-?\d[0-9.]*)\/(-?\d[0-9.]*)/
-      );
-      if (match) {
-        const [, zoom, lat, lon] = match;
-        return [lat, lon, Math.round(Number(zoom))];
-      }
-    },
-  },
-  {
     name: "Waze Editor",
     category: OSM_CATEGORY,
     default_check: false,
@@ -2902,3 +2882,7 @@ const maps_raw = [
 ];
 
 const maps = sortByKey(maps_raw, "name");
+
+chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+  // ...existing code...
+});

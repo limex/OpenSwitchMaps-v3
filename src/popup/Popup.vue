@@ -27,35 +27,40 @@
   </div>
 </template>
 <script>
-const _ = require("lodash");
-const browser = require("webextension-polyfill");
+import { filter, groupBy } from 'lodash-es';
 const { getLatLonZoom, getAllMaps } = require("../maps");
 const storage = require("../options/storage");
 
 module.exports = {
   computed: {
     columns() {
-      const enabledMaps = _.filter(
+      const enabledMaps = filter(
         getAllMaps(),
         (map) => storage.observableEnabledMaps[map.name]
       );
-      return _.groupBy(enabledMaps, "category");
+      return groupBy(enabledMaps, "category");
     },
   },
   methods: {
     openMapInCurrentTab(map) {
-      this.open(
-        map,
-        (mapUrl) => "window.location.href =" + JSON.stringify(mapUrl) + ";"
-      );
+      this.open(map, (mapUrl, tab) => {
+        chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          func: (url) => { window.location.href = url; },
+          args: [mapUrl]
+        });
+      });
     },
     openMapInOtherTab(map) {
-      this.open(
-        map,
-        (mapUrl) => "window.open(" + JSON.stringify(mapUrl) + ");"
-      );
+      this.open(map, (mapUrl, tab) => {
+        chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          func: (url) => { window.open(url); },
+          args: [mapUrl]
+        });
+      });
     },
-    open(map, getCode) {
+    open(map, executeScript) {
       chrome.tabs.query(
         {
           active: true,
@@ -65,14 +70,13 @@ module.exports = {
           const tab = tabs[0];
           const [lat, lon, zoom] = getLatLonZoom(tab.url);
           const mapUrl = map.getUrl(lat, lon, zoom);
-          const code = getCode(mapUrl);
-          chrome.tabs.executeScript(tab.id, { code });
+          executeScript(mapUrl, tab);
           window.close();
         }
       );
     },
     openOptionsPage() {
-      browser.runtime.openOptionsPage();
+      chrome.runtime.openOptionsPage();
     },
   },
 };
