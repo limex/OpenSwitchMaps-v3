@@ -1,11 +1,7 @@
 import { filter, groupBy } from 'lodash-es';
-const Vue = require('vue').default;
-const Options = require('./Options.vue');
+import Vue from 'vue';
+import Options from './Options.vue';
 
-chrome.storage.local.get(['key'], (result) => {
-  new Vue(Options).$mount('#options');
-});
-
-chrome.storage.local.set({ key: value }, () => {
-  // ...existing code...
-});
+new Vue({
+  render: h => h(Options)
+}).$mount("#options");

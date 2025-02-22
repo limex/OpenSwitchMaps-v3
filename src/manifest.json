@@ -1,6 +1,6 @@
 {
   "name": "OpenSwitchMaps_limex_v3",
-  "version": "1.6.55",
+  "version": "1.6.69",
   "description": "Switch map services and Tools for OpenStreetMap contributors",
   "homepage_url": "https://github.com/limex/OpenSwitchMaps",
   "permissions": [
