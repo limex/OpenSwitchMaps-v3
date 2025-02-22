@@ -37,5 +37,7 @@ function setMapEnabled(map, enabled) {
 }
 
 function onChanged(changes) {
-  extend(enabledMaps, changes.enabledMaps.newValue);
+  if (changes.enabledMaps && changes.enabledMaps.newValue) {
+    extend(enabledMaps, changes.enabledMaps.newValue);
+  }
 }
