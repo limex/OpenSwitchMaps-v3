@@ -255,6 +255,66 @@ const maps_raw = [
     },
   },
   {
+    
+    // pastvu.com?g=48.630047,19.333774&z=12&s=osm&t=kosmosnimki&type=1
+    name: "PastVu",
+    category: POI_CATEGORY,
+    default_check: true,
+    domain: "pastvu.com",
+    description: "Retro View",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://pastvu.com?g=" +
+        lat +
+        "," +
+        lon +
+        "&z=" +
+        zoom +
+        "&s=osm&t=kosmosnimki&type=1"
+      );
+    },
+    getLatLonZoom(url) {
+      // https://pastvu.com/?g=50.1542,20.0450&z=11&s=osm&t=kosmosnimki&type=1
+      const match = url.match(
+        /pastvu\.com\/\?g=(-?\d[0-9.]*),(-?\d[0-9.]*)(?:&z=(\d{1,2}))?/
+      );
+      if (match) {
+        let [, lat, lon, zoom] = match;
+        zoom = Math.round(zoom);
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
+    // https://wikishootme.toolforge.org/#lat=54.55513064540956&lng=13.396533653140068&zoom=13&layers=commons,flickr,geo_json,wikidata_image
+    name: "WikiShootMe",
+    category: POI_CATEGORY,
+    default_check: true,
+    domain: "wikishootme.toolforge.org",
+    description: "Wikimedia, Flickr",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://wikishootme.toolforge.org/#lat=" +
+        lat +
+        "&lng=" +
+        lon +
+        "&zoom=" +
+        zoom +
+        "&layers=commons,flickr,geo_json,wikidata_image"
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /wikishootme\.toolforge\.org\/#lat=(-?\d[0-9.]*)&lng=(-?\d[0-9.]*)&zoom=(\d{1,2})/
+      );
+      if (match) {
+        let [, lat, lon, zoom] = match;
+        zoom = Math.round(zoom);
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
     // https://wandrer.earth/dashboard/map#11.01/45.6868/8.1221
     name: "Wandrer",
     category: CYCLING_CATEGORY,
