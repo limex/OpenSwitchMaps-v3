@@ -88,97 +88,121 @@ Show/hide maps:
 ![Settings](Screenshot-chrome-settings.png)
 
 
-## Current (2022/09/20) supported map services
+## Supported map services
 
-1. 4umaps: Topo, Trail difficulty; Outdoor
-1. Bergfex: Topo, Tracks, Tourism; Outdoor
-1. BigMap 2 (Print): Obtain a composed big map image; Tools
-1. BRouter Web: Misc Maps, Custom Layer Overpass & XYZ; Cycling
-1. CamperMap: Camper POIs; Camper
-1. Camping.Info: like Stellplatz.info; Camper
-1. cmap.dev Hazard: Realtime disaster damage estimation; Weather
-1. Copernix (POI): Show POIs from Wikipedia; POI
-1. CyclOSM: for Cyclists; Cycling
-1. DualMaps: synchronized Maps, Aerial & Street View; Tools
-1. earth: Wind, Ocean, Chem, Particulates; Weather
-1. EO Browser: Satellite sensing image viewer; Satellite
-1. FIRMS (Fire): Realtime fire information of satellite observation; Weather
-1. flickr: Geotagged image search; Misc
-1. flightradar24: Airplane tracker; POI
-1. Freemap.sk: Map and Features for Sk; Outdoor
-1. GeoHack: Map links for Wikipedia articles; POI
-1. Google Earth: undefined; Satellite
-1. Google Maps: undefined; Misc
-1. here maps: undefined; Router
-1. Historic Place: Historic objects; POI
-1. KeepRight: OpenStreetMap QA tool; OpenStreetMap
-1. Komoot: Discover & Plan for multiple Sports; Outdoor
-1. Kontur: See most active OSM contributor; OpenStreetMap
-1. Latest OSM Edits per Tile: Latest OpenStreetMap Edits per Tile; OpenStreetMap
-1. Launch RapiD editor: Facebook AI assisted OSM editor; OpenStreetMap
-1. Level0 Editor: low-level OSM Editor; OpenStreetMap
-1. LightningMaps: Realtime lightning map; Weather
-1. Macrostrat (Geology): Geological map; Misc
-1. Map compare: Compare maps side-by-side; Tools
-1. map.orhyginal: Portal of many map services; Misc
-1. Mapillary: Crowdsourced street-level imagery available as CC BY-SA; POI
-1. Mapy.cz: Outdoor with geotagged Pics; Outdoor
-1. MarineTraffic: Ship tracker; POI
-1. Meteoblue Map: 7d Forecast, Maps Wind, Snow, Waves, Rain, ...; Weather
-1. Meteoblue Multi: Multi Model 7d Forecast; Weather
-1. mtbmap.cz: Mountain Bike Map; Cycling
-1. Multimapas: Compare maps by overlay; Tools
-1. NaKarte: Heatmaps, Panorama, Streetview, ...; Outdoor
-1. Old maps online: undefined; Misc
-1. Open Infrastructure: World's hidden infrastructure (Train, Power, Mobile, ...); Misc
-1. OpenAerialMap: undefined; Satellite
-1. OpenCampingMap: Camping Sites; Camper
-1. OpenCycleMap: Cycling map; Cycling
-1. OpenGeofiction: Crowdsoured fictional map; Misc
-1. OpenHistoricalMap: Crowedsourced Historical map; Misc
-1. OpenRailwayMap: undefined; Misc
-1. openrouteservice: undefined; Router
-1. OpenSeaMap: focus on nautical info; Misc
-1. OpenSkiMap: Ski Slopes, Nordic Ski Trails; Winter
-1. OpenSnowMap: Winter sports map; Winter
-1. OpenStreetBrowser: OSM POI viewer; POI
-1. OpenStreetCam: Crowdsourced street-level imagery available as CC BY-SA; POI
-1. OpenStreetMap: undefined; OpenStreetMap
-1. OpenStreetMap Analytics: Analyse when/who edited the OSM data in a specific region; OpenStreetMap
-1. OpenTopoMap: undefined; Outdoor
-1. OSM Buildings: undefined; Misc
-1. OSM Inspector: OpenStreetMap QA tool; OpenStreetMap
-1. OsmAnd: ; Outdoor
-1. Osmose: OSM QA tool; OpenStreetMap
-1. OutdoorActive: Tours for multiple Sports; Outdoor
-1. Overpass-turbo: Power search tool for OpenStreetMap data; OpenStreetMap
-1. Park4night: Discover Overnight Parking; Camper
-1. PeakFinder: Mountain landscape view map; Outdoor
-1. Satellite Tracker 3D: Satellite tracker; POI
-1. Sea Beacons: Lighthouse map; Misc
-1. Stellplatz.Info: like Camping.info App; Camper
-1. Trail Router: Quick Outdoor Roundtrips; Router
-1. Trailforks: Outdoor Sport Trails; Outdoor
-1. Traze: Train tracker; POI
-1. Twitter: Twitter location based search; Misc
-1. USGS earthquakes: Latest earthquakes; Weather
-1. Ventusky: Weather, Wind, Snow, Waves, Rain, ...; Weather
-1. ViaMichelin: Michelin Travel map; Router
-1. Waymarked Trails: Show hiking, cycling, ski routes; Outdoor
-1. waze: Crowdsourced route navigation map; Router
-1. Who did it?: OpenStreetMap QA tool; OpenStreetMap
-1. Wikiloc: Trail & Waypoint Community; Outdoor
-1. wikimapia: multilingual open-content collaborative map; POI
-1. Wikimedia maps: undefined; POI
-1. Windy: WebCams on WeatherMap; Weather
-1. Windy.com: Wind, Ocean, Chem, Particulates; Weather
-1. World Imagery Wayback: Historic satellite images since 2014; Satellite
-1. XS Trails (Climb): Rock Climbing; Outdoor
-1. XS Trails (Ski): Backcountry Ski Mountaineering; Winter
-1. XS Trails (XC): Cross Country Skiing; Winter
-1. yelp: Local reviews; POI
-1. Zoom Earth: Daily Sat Images; Satellite
-1. ÖPNVKarte: Public transport map; Misc
+1. **Google Maps** - Misc, Google Maps
+2. **STRAVA Heatmap SUP** - Heatmap of all athletes, Water
+3. **Bing** - Misc, Bing Maps
+4. **OpenStreetMap** - OpenStreetMap, OSM
+5. **Mapillary** - Crowdsourced street-level imagery available as CC BY-SA, POI
+6. **PastVu** - Retro View, POI
+7. **WikiShootMe** - Wikimedia, Flickr, POI
+8. **Wandrer** - Hike Ride done, Cycling
+9. **OWL Map** - Wikidata items, OSM
+10. **Open Trip** - Sightseeing, POI
+11. **WaterWayMap** - by length, navigable, Water
+12. **flosm** - Watersport, Water
+13. **ELWIS** - Wasserstraßen DE, Water
+14. **Grade.de** - by length, navigable, Water
+15. **OpenStreetCam** - Crowdsourced street-level imagery available as CC BY-SA, POI
+16. **AlpenvereinActiv** - more than OA, Outdoor
+17. **XC-Ski OA** - XC Routes, Winter
+18. **OutdoorActive** - Tours for multiple Sports, Outdoor
+19. **Freemap.sk** - Map and Features for Sk, Outdoor
+20. **Wikiloc** - Trail & Waypoint Community, Outdoor
+21. **Waymarked Trails** - Show hiking, cycling, ski routes, Outdoor
+22. **Stellplatz.Info** - like Camping.info App, Camper
+23. **DualMaps** - synchronized Maps, Aerial & Street View, Tools
+24. **Camping.Info** - like Stellplatz.info, Camper
+25. **BRouter Web** - Misc Maps, Custom Layer Overpass & XYZ, Cycling
+26. **BRouter Grade.de** - Waterway Routing, Water
+27. **Norgeskart** - Outdoor, POI, Outdoor
+28. **Flussinfo** - North Germany only, Water
+29. **Bikerouter** - Best bicycle routing on this planet, Cycling
+30. **CamperMap** - Camper POIs, Camper
+31. **OpenCamping** - Camping Sites, Camper
+32. **OpenSkiMap** - Ski Slopes, Nordic Ski Trails, Winter
+33. **Komoot Plan** - Plan for multiple Sports, Outdoor
+34. **Komoot Discover** - Discover for multiple Sports, Outdoor
+35. **Refuges Info** - Refuges, Parking, Busstation, Water, Outdoor
+36. **Park4night** - Discover Overnight Parking, Camper
+37. **Mapy.cz** - Outdoor with geotagged Pics, Outdoor
+38. **Zoom Earth** - Daily Sat Images, Satellite
+39. **mtbmap.cz** - Mountain Bike Map, Cycling
+40. **XS Trails (XC)** - Cross Country Skiing, Winter
+41. **XS Trails (Climb)** - Rock Climbing, Outdoor
+42. **XS Trails (Ski)** - Backcountry Ski Mountaineering, Winter
+43. **Overpass-turbo** - Power search tool for OpenStreetMap data, OSM
+44. **Osmose** - OSM QA tool, OSM
+45. **KeepRight** - OpenStreetMap QA tool, OSM
+46. **OSM Inspector** - OpenStreetMap QA tool, OSM
+47. **Who did it?** - OpenStreetMap QA tool, OSM
+48. **Map compare** - Compare maps side-by-side, Tools
+49. **Multimapas** - Compare maps by overlay, Tools
+50. **map.orhyginal** - Portal of many map services, Misc
+51. **NaKarte** - Heatmaps, Panorama, Streetview, ..., Outdoor
+52. **Trailforks** - Outdoor Sport Trails, Outdoor
+53. **Ventusky** - Weather, Wind, Snow, Waves, Rain, ..., Weather
+54. **Meteoblue** - 7d Forecast, Maps Wind, Snow, Waves, Rain, ..., Weather
+55. **Meteoblue Multi** - Multi Model 7d Forecast, Weather
+56. **Windy** - WebCams on WeatherMap, Weather
+57. **Bergfex** - Topo, Tracks, Tourism, Outdoor
+58. **4umaps** - Topo, Trail difficulty, Outdoor
+59. **BigMap 2 (Print)** - Obtain a composed big map image, Tools
+60. **Satellite Tracker 3D** - Satellite tracker, POI
+61. **earth** - Wind, Ocean, Chem, Particulates, Weather
+62. **Windy.com** - Wind, Ocean, Chem, Particulates, Weather
+63. **flightradar24** - Airplane tracker, POI
+64. **Traze** - Train tracker, POI
+65. **MarineTraffic** - Ship tracker, POI
+66. **CyclOSM** - for Cyclists, Cycling
+67. **OpenTopoMap** - Outdoor, Outdoor
+68. **EO Browser** - Satellite sensing image viewer, Satellite
+69. **Macrostrat** - Geological map, Weather
+70. **Old maps online** - Historical maps, Misc
+71. **Wikimedia maps** - Wikipedia POI, POI
+72. **Open Infrastructure** - World's hidden infrastructure (Train, Power, Mobile, ...), Misc
+73. **OSM Buildings** - 3D Buildings, Misc
+74. **openrouteservice** - Directions, Router
+75. **OpenRailwayMap** - Railway map, Misc
+76. **OpenAerialMap** - Aerial imagery, Satellite
+77. **Launch RapiD editor** - Facebook AI assisted OSM editor, OSM
+78. **waze** - Crowdsourced route navigation map, Router
+79. **here maps** - Directions, Router
+80. **wikimap** - Wikipedia POI, POI
+81. **wikimapia** - Multilingual open-content collaborative map, POI
+82. **Copernix (POI)** - Show POIs from Wikipedia, POI
+83. **GeoHack** - Map links for Wikipedia articles, POI
+84. **Google Earth** - 3D Earth view, Satellite
+85. **ArcGIS Wayback** - Historic satellite images since 2014, Satellite
+86. **OpenGeofiction** - Crowdsourced fictional map, Misc
+87. **Twitter** - Twitter location based search, Misc
+88. **flickr** - Geotagged image search, Misc
+89. **OpenStreetMap Analytics** - Analyse when/who edited the OSM data in a specific region, OSM
+90. **FIRMS (Fire)** - Realtime fire information of satellite observation, Weather
+91. **OpenStreetBrowser** - OSM POI viewer, POI
+92. **Kontur** - See most active OSM contributor, OSM
+93. **PeakFinder** - Mountain landscape view map, Outdoor
+94. **Latest OSM Edits per Tile** - Latest OpenStreetMap Edits per Tile, OSM
+95. **ViaMichelin** - Michelin Travel map, Router
+96. **OpenSnowMap** - Winter sports map, Winter
+97. **OpenCycleMap** - Cycling map, Cycling
+98. **Historic Place** - Historic objects, POI
+99. **yelp** - Local reviews, POI
+100. **OpenSeaMap** - focus on nautical info, Water
+101. **i-boating** - Marine charts, Water
+102. **USGS earthquakes** - Latest earthquakes, Weather
+103. **OpenHistoricalMap** - Crowdsourced Historical map, Misc
+104. **ÖPNVKarte** - Public transport map, Misc
+105. **LightningMaps** - Realtime lightning map, Weather
+106. **Trail Router** - Quick Outdoor Roundtrips, Router
+107. **cmap.dev Hazard** - Realtime disaster damage estimation, Weather
+108. **Sea Beacons** - Lighthouse map, Water
+109. **Level0 Editor** - low-level OSM Editor, OSM
+110. **OsmAnd** - Outdoor map, Outdoor
+111. **Waze Editor** - Maintain the waze maps, OSM
+112. **Peakvisor** - 3D View Panorama, Outdoor
+
 
 ## Similar softwares
 
