@@ -1,30 +1,45 @@
-# OpenSwitchMaps
+# OpenSwitchMaps (Manifest v3)
 
-Map service switcher for Chrome/Firefox extension
-Greatly contributed by jazzzz.
-This is a fork from ![tankaru/OpenSwitchMaps](https://github.com/tankaru/OpenSwitchMaps). Kudos for the great work!! Thanks! A very good foundation for my fork!
+Map service switcher as Chrome Extension 
+
+This is a fork from ![tankaru/OpenSwitchMaps](https://github.com/tankaru/OpenSwitchMaps). Kudos for the great work!! Thanks!
+
+* Migration to Manifest v3
+* Removed Cross Browser Support, now Chrome only
+* For Performance/Usability Reasons, many map services where removed
+  
 
 ## Motivation for fork (New Features & Fixes)
 
-- Some cleanup done. Added new maps
-- Most of the maps didn't calculate the lat/lon/zoom calculation that is needed to open a new map from.
+- Chrome Manifest v3
+- Some cleanup done. Added new maps.
 - Chanced the Categories, because some grew to big, while others remained small.
 - Switched behavour in the Map Popup: Left Click now opens in new Tab, Middle Click opens in same Tab
 - Sorted the Maps by Name
 - Show Descriptions while MouseOver in Options Popup
-- Existing Extension was listing the Categories in Columns. This limited the number of Categories.
-  Also was a waste of space with smaller Categories. 
-  Solution: Render Categories in rows
+- Existing Extension was listing the Categories in Columns. This limited the number of Categories. Also was a waste of space with smaller Categories. Solution: Render Categories in rows
+- Issues with
+
+## You are missing maps?
+
+- Raise an [issue](https://github.com/limex/OpenSwitchMaps-v3/issues) in github. I might add it, if I like.
+- I will NOT add all the maps of the original Repo of tankaru.
+
+## You still want that map added?
+
+- Fork the code, add it yourself. 
+- I didn't change the code, that lists the maps. It is easy, if you know Javascript
+
 
 ## Install
 
 you have 3 options ...
 
-### a) from Browser plugin
+### a) Load unpacked dist directory from github
 
-- (sorry this is outdated, because updating to Marketplace is an time expensive manual task I'm currently not willing to do) [Chrome webstore](https://chrome.google.com/webstore/detail/openswitchmapslimex/koidglegkmmddlpoigdfmblkjnfhibeb)
-- (also outdated) [Firefox addon center](https://addons.mozilla.org/firefox/addon/openswitchmaps_limex/)
-- Opening the Dialogs on _first_ click take some seconds to show up. Be patient. :)
+1. Download the /dist Directory from github (Clone the Code or Code -> Download ZIP) to a Directory of of your choice
+1. Add to your Chrome/Firefox
+   - Chrome: chrome://extensions/ -> Load unpacked
 
 ### b) from source code
 
@@ -34,19 +49,17 @@ This extention uses Node.js
 1. Install the dependencies: npm install
 1. Build the extension: npm run build
 1. The extension is built in the `dist` directory
-1. Add to your Chrome/Firefox
+1. Add to your Chrome
    - Chrome: chrome://extensions/ -> Load unpacked
-1. Optional:
+1. Additional
+   1. Build Script copies the /dist folder to your Chrome Extension Folder
+   2. A script increases the version number.
+   3. There a legacy powershell scripts hat might be outdated.
 
-   Increase the build version before 'Build the extension' in Powershell (if needed):
-   - Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process    (optional in case of security warning)
-   - .\inc_patch.ps1
+### b) from Chrome Marketplace (outdated)
 
-### c) Load unpacked dist directory from github
-
-1. Download the /dist Directory from github (Clone the Code or Code -> Download ZIP) to a Directory of of your choice
-1. Add to your Chrome/Firefox
-   - Chrome: chrome://extensions/ -> Load unpacked
+- (sorry this is outdated, because updating to Marketplace is an time expensive manual task I'm currently not willing to do) [Chrome webstore](https://chrome.google.com/webstore/detail/openswitchmapslimex/koidglegkmmddlpoigdfmblkjnfhibeb)
+- Opening the Dialogs on _first_ click take some seconds to show up. Be patient. :)
 
 ## How to use
 
@@ -55,19 +68,18 @@ This extention uses Node.js
 1. Select OpenStreetMap, for example.
 1. You can jump to OpenStreetMap at the same position
 1. Left click: Open in a new tab. Middle click: Open the same tab.
+2. Blue Extension Icon: You are on a suppored map.
+3. Red Extension Icon: not supported map.
 
 ## Settings
 
 Show/hide maps:
 
-1. Right click the earth icon,
+1. click the earth icon,
 1. Select "Options"
 1. It might take some seconds for the popup to apear. Collecting all the data takes some time.
 1. Check/uncheck each map to show/hide it.
 
-## ToDo
-
-- ??
 
 ## Screenshots
 
