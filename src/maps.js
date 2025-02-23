@@ -1139,7 +1139,7 @@ const maps_raw = [
     domain: "mtbmap.cz",
     description: "Mountain Bike Map",
     getUrl(lat, lon, zoom) {
-      return "http://mtbmap.cz/#zoom=" + zoom + "&lat=" + lat + "&lon=" + lon;
+      return "https://mtbmap.cz/#zoom=" + zoom + "&lat=" + lat + "&lon=" + lon;
     },
     getLatLonZoom(url) {
       const match = url.match(
@@ -1239,7 +1239,7 @@ const maps_raw = [
     domain: "overpass-turbo.eu",
     description: "Power search tool for OpenStreetMap data",
     getUrl(lat, lon, zoom) {
-      return "http://overpass-turbo.eu/?Q=&C=" + lat + ";" + lon + ";" + zoom;
+      return "https://overpass-turbo.eu/?Q=&C=" + lat + ";" + lon + ";" + zoom;
     },
   },
   {
@@ -1250,7 +1250,7 @@ const maps_raw = [
     description: "OSM QA tool",
     getUrl(lat, lon, zoom) {
       return (
-        "http://osmose.openstreetmap.fr/map/#zoom=" +
+        "https://osmose.openstreetmap.fr/map/#zoom=" +
         zoom +
         "&lat=" +
         lat +
@@ -1304,7 +1304,7 @@ const maps_raw = [
     getUrl(lat, lon, zoom) {
       if (Number(zoom) > 18) zoom = 18;
       return (
-        "http://tools.geofabrik.de/osmi/?view=geometry&lon=" +
+        "https://tools.geofabrik.de/osmi/?view=geometry&lon=" +
         lon +
         "&lat=" +
         lat +
@@ -1332,7 +1332,7 @@ const maps_raw = [
       if (Number(zoom) > 18) zoom = 18;
       if (Number(zoom) < 12) zoom = 12;
       return (
-        "http://simon04.dev.openstreetmap.org/whodidit/?zoom=" +
+        "https://simon04.dev.openstreetmap.org/whodidit/?zoom=" +
         zoom +
         "&lat=" +
         lat +
@@ -1357,7 +1357,7 @@ const maps_raw = [
     domain: "tools.geofabrik.de",
     description: "Compare maps side-by-side",
     getUrl(lat, lon, zoom) {
-      return "http://tools.geofabrik.de/mc/#" + zoom + "/" + lat + "/" + lon;
+      return "https://tools.geofabrik.de/mc/#" + zoom + "/" + lat + "/" + lon;
     },
     getLatLonZoom(url) {
       const match = url.match(
@@ -1377,7 +1377,7 @@ const maps_raw = [
     description: "Compare maps by overlay",
     getUrl(lat, lon, zoom) {
       return (
-        "http://javier.jimenezshaw.com/mapas/mapas.html?z=" +
+        "https://javier.jimenezshaw.com/mapas/mapas.html?z=" +
         zoom +
         "&c=" +
         lat +
@@ -1402,7 +1402,7 @@ const maps_raw = [
     domain: "orhyginal.fr",
     description: "Portal of many map services",
     getUrl(lat, lon, zoom) {
-      return "http://map.orhyginal.fr/#" + zoom + "/" + lat + "/" + lon;
+      return "https://map.orhyginal.fr/#" + zoom + "/" + lat + "/" + lon;
     },
     getLatLonZoom(url) {
       const match = url.match(
@@ -1630,7 +1630,7 @@ const maps_raw = [
     description: "Obtain a composed big map image",
     getUrl(lat, lon, zoom) {
       return (
-        "http://bigmap.osmz.ru/index.html#map=" + zoom + "/" + lat + "/" + lon
+        "https://bigmap.osmz.ru/index.html#map=" + zoom + "/" + lat + "/" + lon
       );
     },
     getLatLonZoom(url) {
@@ -2238,6 +2238,7 @@ const maps_raw = [
     },
   },
   {
+    // https://livingatlas.arcgis.com/wayback/?ext=12.263685479736328,54.20354273986816,12.727514520263671,54.435457260131834#active=36557&mapCenter=-115.29850%2C36.06400%2C14
     name: "ArcGIS Wayback",
     category: SATELLITE_CATEGORY,
     default_check: true,
@@ -2246,7 +2247,7 @@ const maps_raw = [
     getUrl(lat, lon, zoom) {
       const [minlon, minlat, maxlon, maxlat] = latLonZoomToBbox(lat, lon, zoom);
       return (
-        "http://livingatlas.arcgis.com/wayback/?ext=" +
+        "https://livingatlas.arcgis.com/wayback/?ext=" +
         minlon +
         "," +
         minlat +
@@ -2333,7 +2334,7 @@ const maps_raw = [
     },
   },
   {
-    //http://osm-analytics.org/#/show/bbox:136.68676,34.81081,137.11142,34.93364/buildings/recency
+    // https://osm-analytics.org/#/show/bbox:136.68676,34.81081,137.11142,34.93364/buildings/recency
     name: "OpenStreetMap Analytics",
     category: OSM_CATEGORY,
     default_check: false,
@@ -2342,7 +2343,7 @@ const maps_raw = [
     getUrl(lat, lon, zoom) {
       [minlon, minlat, maxlon, maxlat] = latLonZoomToBbox(lat, lon, zoom);
       return (
-        "http://osm-analytics.org/#/show/bbox:" +
+        "https://osm-analytics.org/#/show/bbox:" +
         minlon +
         "," +
         minlat +
@@ -2558,7 +2559,7 @@ const maps_raw = [
     },
   },
   {
-    //http://www.opencyclemap.org/?zoom=17&lat=43.08561&lon=141.33047
+    //https://www.opencyclemap.org/?zoom=17&lat=43.08561&lon=141.33047
     name: "OpenCycleMap",
     category: CYCLING_CATEGORY,
     default_check: true,
@@ -2566,7 +2567,7 @@ const maps_raw = [
     description: "Cycling map",
     getUrl(lat, lon, zoom) {
       return (
-        "http://www.opencyclemap.org/?zoom=" +
+        "https://www.opencyclemap.org/?zoom=" +
         zoom +
         "&lat=" +
         lat +
@@ -2585,7 +2586,7 @@ const maps_raw = [
     },
   },
   {
-    //http://gk.historic.place/historische_objekte/translate/en/index-en.html?zoom=5&lat=50.37522&lon=11.5
+    //https://gk.historic.place/historische_objekte/translate/en/index-en.html?zoom=5&lat=50.37522&lon=11.5
     name: "Historic Place",
     category: POI_CATEGORY,
     default_check: true,
@@ -2593,7 +2594,7 @@ const maps_raw = [
     description: "Historic objects",
     getUrl(lat, lon, zoom) {
       return (
-        "http://gk.historic.place/historische_objekte/translate/en/index-en.html?zoom=" +
+        "https://gk.historic.place/historische_objekte/translate/en/index-en.html?zoom=" +
         zoom +
         "&lat=" +
         lat +
@@ -2633,7 +2634,7 @@ const maps_raw = [
     },
   },
   {
-    //http://map.openseamap.org/?zoom=6&lat=53.32140&lon=2.86829
+    //https://map.openseamap.org/?zoom=6&lat=53.32140&lon=2.86829
     name: "OpenSeaMap",
     category: WATER_CATEGORY,
     default_check: true,
@@ -2641,7 +2642,7 @@ const maps_raw = [
     description: "focus on nautical info",
     getUrl(lat, lon, zoom) {
       return (
-        "http://map.openseamap.org/?zoom=" +
+        "https://map.openseamap.org/?zoom=" +
         Math.min(Number(zoom), 18) +
         "&lat=" +
         lat +
@@ -2751,14 +2752,14 @@ const maps_raw = [
     },
   },
   {
-    //http://www.xn--pnvkarte-m4a.de/?#139.781;35.4722;10
+    //https://www.xn--pnvkarte-m4a.de/?#139.781;35.4722;10
     name: "ÖPNVKarte",
     category: MISC_CATEGORY,
     default_check: false,
     domain: "xn--pnvkarte-m4a.de",
     description: "Public transport map",
     getUrl(lat, lon, zoom) {
-      return `http://www.xn--pnvkarte-m4a.de/?#${lon};${lat};${zoom}`;
+      return `https://www.xn--pnvkarte-m4a.de/?#${lon};${lat};${zoom}`;
     },
     getLatLonZoom(url) {
       const match = url.match(
@@ -2771,7 +2772,7 @@ const maps_raw = [
     },
   },
   {
-    //http://www.lightningmaps.org/#m=oss;t=3;s=0;o=0;b=;ts=0;y=35.5065;x=139.8395;z=10;d=2;dl=2;dc=0;
+    //https://www.lightningmaps.org/#m=oss;t=3;s=0;o=0;b=;ts=0;y=35.5065;x=139.8395;z=10;d=2;dl=2;dc=0;
     name: "LightningMaps",
     category: WEATHER_CATEGORY,
     default_check: false,
@@ -2833,14 +2834,14 @@ const maps_raw = [
     },
   },
   {
-    //http://beacons.schmirler.de/en/world.html#map=11/35.315176983316775/139.7419591178308&layers=OS5&details=18
+    //https://beacons.schmirler.de/en/world.html#map=11/35.315176983316775/139.7419591178308&layers=OS5&details=18
     name: "Sea Beacons",
     category: WATER_CATEGORY,
     default_check: true,
     domain: "schmirler.de",
     description: "Lighthouse map",
     getUrl(lat, lon, zoom) {
-      return `http://beacons.schmirler.de/en/world.html#map=${zoom}/${lat}/${lon}&layers=OS5&details=18`;
+      return `https://beacons.schmirler.de/en/world.html#map=${zoom}/${lat}/${lon}&layers=OS5&details=18`;
     },
     getLatLonZoom(url) {
       const match = url.match(
@@ -2853,14 +2854,14 @@ const maps_raw = [
     },
   },
   {
-    //http://level0.osmz.ru/?url=map=18.74/47.040549/15.463744
+    //https://level0.osmz.ru/?url=map=18.74/47.040549/15.463744
     name: "Level0 Editor",
     category: OSM_CATEGORY,
     default_check: false,
     domain: "level0.osmz.ru",
     description: "low-level OSM Editor",
     getUrl(lat, lon, zoom) {
-      return `http://level0.osmz.ru/?url=map=${lon}/${lat}/${zoom}`;
+      return `https://level0.osmz.ru/?url=map=${lon}/${lat}/${zoom}`;
     },
     getLatLonZoom(url) {
       const match = url.match(
@@ -2922,7 +2923,7 @@ const maps_raw = [
     description: "3D View Panorama",
     getUrl(lat, lon, zoom) {
       return (
-        "http://peakvisor.com/panorama.html?lat=" +
+        "https://peakvisor.com/panorama.html?lat=" +
         lat +
         "&lng=" +
         lon +
