@@ -212,3 +212,7 @@ Show/hide maps:
 - [Map Switcher](https://chrome.google.com/webstore/detail/map-switcher/fanpjcbgdinjeknjikpfnldfpnnpkelb), by david.r.edgar
 - [Map Helper](https://chrome.google.com/webstore/detail/map-helper/ihllleemlchjegcfnaglokgamafhafda), by petrovnn
 - [MapSwitcher](https://addons.mozilla.org/ja/firefox/addon/map-switcher/), by František Nesveda
+
+## Privacy
+
+Please be aware that when you use this extension to switch between map services, your location data might be forwarded to the respective map services listed above. Each map service has its own privacy policy, and we recommend reviewing them to understand how your data is handled.
