@@ -4,3 +4,4 @@
 .vscode/launch.json
 /deploy/
 dist/.DS_Store
+config.json
