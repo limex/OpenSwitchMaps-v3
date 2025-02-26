@@ -1,8 +1,9 @@
-const webstoreUpload = require('chrome-webstore-upload');
-const fs = require('fs');
-const path = require('path');
+import webstoreUpload from 'chrome-webstore-upload';
+import { readFileSync } from 'fs';
+import { resolve } from 'path';
 
-// Create a config.json file in the same directory as this script with the following content:
+// Create a config.json file in the same directory as this script 
+// with the following content (https://github.com/fregante/chrome-webstore-upload-keys):
 /* {
     "clientId": "your-client-id",
     "clientSecret": "your-client-secret",
@@ -11,15 +12,15 @@ const path = require('path');
   } */  
 
 
-const configPath = path.resolve(__dirname, './config.json');
-const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+const configPath = resolve(__dirname, './config.json');
+const config = JSON.parse(readFileSync(configPath, 'utf-8'));
 
 const CLIENT_ID = config.clientId;
 const CLIENT_SECRET = config.clientSecret;
 const REFRESH_TOKEN = config.refreshToken;
 const APP_ID = config.appId;
 
-const zipFilePath = path.resolve(__dirname, './zip/OpenSwitchMaps.zip');
+const zipFilePath = resolve(__dirname, './zip/OpenSwitchMaps.zip');
 
 const webStore = webstoreUpload({
   extensionId: APP_ID,
