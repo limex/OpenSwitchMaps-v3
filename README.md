@@ -4,10 +4,6 @@ Map service switcher as Chrome Extension
 
 This is a fork from ![tankaru/OpenSwitchMaps](https://github.com/tankaru/OpenSwitchMaps). Kudos for the great work!! Thanks!
 
-* Migration to Manifest v3
-* Removed Cross Browser Support, now Chrome only
-* For Performance/Usability Reasons, many map services where removed
-  
 
 ## Motivation for fork (New Features & Fixes)
 
@@ -18,24 +14,32 @@ This is a fork from ![tankaru/OpenSwitchMaps](https://github.com/tankaru/OpenSwi
 - Sorted the Maps by Name
 - Show Descriptions while MouseOver in Options Popup
 - Existing Extension was listing the Categories in Columns. This limited the number of Categories. Also was a waste of space with smaller Categories. Solution: Render Categories in rows
-- Issues with
+- Some issues with v3 upgrade triggered removal of Firefox Browser Support, now Chrome only.
+- For Performance/Usability Reasons, many map services where removed
+
 
 ## You are missing maps?
 
-- Raise an [issue](https://github.com/limex/OpenSwitchMaps-v3/issues) in github. I might add it, if I like.
-- I will NOT add all the maps of the original Repo of tankaru.
+- Raise an [issue](https://github.com/limex/OpenSwitchMaps-v3/issues) in github. I might add it, if I like the map.
+- But: I will DEFINITLY NOT add all the maps of the original Repo from tankaru.
 
 ## You still want that map added?
 
-- Fork the code, add it yourself. 
-- I didn't change the code, that lists the maps. It is easy, if you know Javascript
+- Fork the code, [add it yourself](dev-howto.md).
+- I didn't change the code segment, that lists the maps. It is easy to add your map, if you know Javascript. Or github copilot 😉
 
 
 ## Install
 
 you have 3 options ...
 
-### a) Load unpacked dist directory from github
+### a) from Chrome Marketplace
+
+- [Chrome webstore](https://chromewebstore.google.com/detail/openswitchmapslimexv3/ahkklpcjhdbcmfkikkifnaonfakmeiga)
+- Opening the Dialogs on _first_ click take some seconds to show up. Be patient. :)
+
+
+### b) Load unpacked dist directory from github
 
 1. Download the /dist Directory from github (Clone the Code or Code -> Download ZIP) to a Directory of of your choice
 1. Add to your Chrome/Firefox
@@ -43,23 +47,7 @@ you have 3 options ...
 
 ### b) from source code
 
-This extention uses Node.js
-
-1. Install Node.js
-1. Install the dependencies: npm install
-1. Build the extension: npm run build
-1. The extension is built in the `dist` directory
-1. Add to your Chrome
-   - Chrome: chrome://extensions/ -> Load unpacked
-1. Additional
-   1. Build Script copies the /dist folder to your Chrome Extension Folder
-   2. A script increases the version number.
-   3. There a legacy powershell scripts hat might be outdated.
-
-### b) from Chrome Marketplace (outdated)
-
-- (sorry this is outdated, because updating to Marketplace is an time expensive manual task I'm currently not willing to do) [Chrome webstore](https://chrome.google.com/webstore/detail/openswitchmapslimex/koidglegkmmddlpoigdfmblkjnfhibeb)
-- Opening the Dialogs on _first_ click take some seconds to show up. Be patient. :)
+[Development HowTo](dev-howto.md)
 
 ## How to use
 
@@ -69,7 +57,7 @@ This extention uses Node.js
 1. You can jump to OpenStreetMap at the same position
 1. Left click: Open in a new tab. Middle click: Open the same tab.
 2. Blue Extension Icon: You are on a suppored map.
-3. Red Extension Icon: not supported map.
+3. Red Extension Icon: not supported map or any other random page.
 
 ## Settings
 

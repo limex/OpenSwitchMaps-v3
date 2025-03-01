@@ -5,3 +5,4 @@
 /deploy/
 dist/.DS_Store
 config.json
+.env.submit
