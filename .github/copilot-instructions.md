@@ -7,11 +7,13 @@ We use the VUE framework.
 We use various NPM packages.
 
 ## Coding Standards
-- Follow JavaScript ES6+ syntax.
+- Strictly follow JavaScript ES6+ syntax.
 - Use Vue.js for building user interfaces.
 - Ensure code is modular and reusable.
 - Write clear and concise comments for complex logic.
 - Follow the project's existing coding style and conventions.
+- We always write JavaScript with double quotes and tabs for indentation.
+- Strictly import CommonJS modules via the default export. Dont ever use Named export.
 
 ## Best Practices
 - Always give verbose explanations of your changes.
