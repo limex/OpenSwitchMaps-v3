@@ -1064,8 +1064,7 @@ const maps_raw = [
     getUrl(lat, lon, zoom) {
       zoom = Math.round(zoom);
       return (
-        // https://www.park4night.com/de/search?lat=45.8017&lng=10.957699999999932&z=16
-        "https://www.park4night.com/de/search?lat=" +
+        "https://park4night.com/de/search?lat=" +
         lat +
         "&lng=" +
         lon +
@@ -2238,39 +2237,27 @@ const maps_raw = [
     },
   },
   {
-    // https://livingatlas.arcgis.com/wayback/?ext=12.263685479736328,54.20354273986816,12.727514520263671,54.435457260131834#active=36557&mapCenter=-115.29850%2C36.06400%2C14
+    // https://livingatlas.arcgis.com/wayback/#active=6543&mapCenter=-115.29850%2C36.06400%2C14
     name: "ArcGIS Wayback",
     category: SATELLITE_CATEGORY,
     default_check: true,
     domain: "arcgis.com",
     description: "Historic satellite images since 2014",
     getUrl(lat, lon, zoom) {
-      const [minlon, minlat, maxlon, maxlat] = latLonZoomToBbox(lat, lon, zoom);
-      return (
-        "https://livingatlas.arcgis.com/wayback/?ext=" +
-        minlon +
-        "," +
-        minlat +
-        "," +
-        maxlon +
-        "," +
-        maxlat
+      return ("https://livingatlas.arcgis.com/wayback/#active=6543&mapCenter=" +
+        lon +
+        "%2C" +
+        lat +
+        "%2C" + 
+        zoom
       );
     },
     getLatLonZoom(url) {
-      let match;
-      if (
-        (match = url.match(
-          /livingatlas\.arcgis\.com\/wayback\/\?ext=(-?\d[0-9.]*),(-?\d[0-9.]*),(-?\d[0-9.]*),(-?\d[0-9.]*)/
-        ))
-      ) {
-        const [, minlon, minlat, maxlon, maxlat] = match;
-        const [lat, lon, zoom] = bboxToLatLonZoom(
-          minlon,
-          minlat,
-          maxlon,
-          maxlat
-        );
+      const match = url.match(
+        /livingatlas\.arcgis\.com\/wayback.*mapCenter=(-?\d[0-9.]*)%2C(-?\d[0-9.]*)%2C(\d{1,2})/
+      );
+      if (match) {
+        const [, lon, lat, zoom] = match;
         return [lat, lon, zoom];
       }
     },
