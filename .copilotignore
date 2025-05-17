@@ -3,7 +3,7 @@
 .vscode/settings.json
 .vscode/launch.json
 /deploy/
-/dist/*
 dist/.DS_Store
 config.json
 .env.submit
+/zip/
