@@ -2950,6 +2950,7 @@ const maps_raw = [
     },
   },
   {
+    // https://peakvisor.com/panorama.html?lat=47.07440&lng=12.69390&alt=4598&yaw=-52.70&pitch=-22.30&hfov=60.00
     name: "Peakvisor",
     category: OUTDOOR_CATEGORY,
     default_check: true,
@@ -2969,8 +2970,8 @@ const maps_raw = [
         /peakvisor\.com\/.*?lat=(-?\d[0-9.]*)&lng=(-?\d[0-9.]*)/
       );
       if (match) {
-        let [, lat, lng] = match;
-        return [lat, lon, 16];
+        let [, lat, lon] = match;
+        return [lat, lon, 11];
       }
     },
   },
