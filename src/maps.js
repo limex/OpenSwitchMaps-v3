@@ -602,6 +602,7 @@ const maps_raw = [
     },
   },
   {
+    // https://www.outdooractive.com/en/map/#bm=osm%3Asummer&caml=6y0,1rjxo7,ahnke0,0,0&fu=1&zc=10.,10.67459,63.43147
     name: "OutdoorActive",
     category: OUTDOOR_CATEGORY,
     default_check: true,
@@ -619,7 +620,7 @@ const maps_raw = [
     },
     getLatLonZoom(url) {
       const match = url.match(
-        /outdooractive\.com\/.*?zc=(\d{1,2}),(-?\d[0-9.]*),(-?\d[0-9.]*)/
+        /outdooractive\.com\/.*?zc=(-?\d[0-9.]*),(-?\d[0-9.]*),(-?\d[0-9.]*)/
       );
       if (match) {
         let [, zoom, lon, lat] = match;
