@@ -1062,6 +1062,7 @@ const maps_raw = [
   },
   {
     // https://www.refuges.info/nav#lat=47.08286082279579&lon=15.447260141372682&zoom=17
+    // https://www.refuges.info/nav#lat=47.2295&12.1371&lon=12.1371&zoom=14
     name: "Refuges Info",
     category: OUTDOOR_CATEGORY,
     default_check: true,
@@ -1083,10 +1084,10 @@ const maps_raw = [
     // https://www.refuges.info/nav?map=16/15.9197/46.876
     getLatLonZoom(url) {
       const match = url.match(
-        /refuges\.info\/.*?map=(\d{1,2})\/(-?\d[0-9.]*)\/(-?\d[0-9.]*)/
+        /refuges\.info\/.*#lat=(-?\d[0-9.]*)&(-?\d[0-9.]*).*&zoom=(-?\d[0-9.]*)/
       );
       if (match) {
-        const [, zoom, lon, lat] = match;
+        const [, lat, lon, zoom] = match;
         return [lat, lon, zoom];
       }
     },
@@ -1877,7 +1878,7 @@ const maps_raw = [
   {
     name: "EO Browser",
     category: SATELLITE_CATEGORY,
-    default_check: true,
+    default_check: false,
     domain: "sentinel-hub.com",
     description: "Satellite sensing image viewer",
     getUrl(lat, lon, zoom) {
@@ -2262,6 +2263,7 @@ const maps_raw = [
     },
   },
   {
+    // https://earth.google.com/web/@47.11696909,12.0823417,1850.4463772a,152688.95146921d,1y,-0h,0t,0r/data=CgRCAggBOgMKATBCAggASg0I____________ARAA
     name: "Google Earth",
     category: SATELLITE_CATEGORY,
     default_check: true,
@@ -2276,7 +2278,7 @@ const maps_raw = [
         /earth\.google\.com\/web\/@(-?\d[0-9.]*),(-?\d[0-9.]*),(-?\d[0-9.]*)a,(-?\d[0-9.]*)d/
       );
       if (match) {
-        let [, lat, lon, , zoom] = match;
+        let [, lat, lon, zoom] = match;
         zoom = Math.round(-1.44 * Math.log(zoom) + 27);
         return [lat, lon, zoom];
       }
