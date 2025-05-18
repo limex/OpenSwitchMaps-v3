@@ -27,6 +27,8 @@ function WGS84ToUTM(lat, lon) {
     ["EPSG:4326", "+proj=longlat +datum=WGS84 +no_defs"],
     ["EPSG:32633", "+proj=utm +zone=33 +datum=WGS84 +units=m +no_defs"],
   ]);
+  lon = parseFloat(lon);
+  lat = parseFloat(lat);
   const [easting, northing] = proj4("EPSG:4326", "EPSG:32633", [lon, lat]);
   return [easting, northing];
 }
@@ -37,6 +39,8 @@ function UTMToWGS84(easting, northing) {
       "+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs", ],
     ["EPSG:4258", "+proj=longlat +ellps=GRS80 +no_defs"],
   ]);
+  easting = parseFloat(easting);
+  northing = parseFloat(northing);
   const [lon, lat] = proj4("EPSG:25833", "EPSG:4258", [easting, northing]);
   return [lat, lon];
 }
@@ -870,7 +874,6 @@ const maps_raw = [
     description: "Outdoor, POI",
     getUrl(lat, lon, zoom) {
       const [easting, northing] = WGS84ToUTM(lat,lon);
-      // console.log(`Easting: ${easting.toFixed(2)}, Northing: ${northing.toFixed(2)}`);
       return (
         "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=" +
         zoom +
@@ -888,7 +891,6 @@ const maps_raw = [
       if (match) {
         const [, zoom, northing, easting] = match;
         const [lat, lon] = UTMToWGS84(easting,northing);
-        // console.log(`Longitude: ${lon.toFixed(6)}, Latitude: ${lat.toFixed(6)}`);
         return [lat, lon, Math.round(Number(zoom))];
       }
     },
