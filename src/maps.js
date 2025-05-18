@@ -1150,6 +1150,7 @@ const maps_raw = [
   },
   {
     // https://zoom.earth/#view=47.479649,15.750171,15z
+    // https://zoom.earth/maps/satellite/#view=50.843194,4.382081,11z
     name: "Zoom Earth",
     category: SATELLITE_CATEGORY,
     default_check: true,
@@ -1160,7 +1161,7 @@ const maps_raw = [
     },
     getLatLonZoom(url) {
       const match = url.match(
-        /zoom\.earth\/#view=(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2})z/
+        /zoom\.earth\/.*#view=(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2})z/
       );
       if (match) {
         let [, lat, lon, zoom] = match;
