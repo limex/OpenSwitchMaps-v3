@@ -35,8 +35,10 @@ function WGS84ToUTM(lat, lon) {
 
 function UTMToWGS84(easting, northing) {
   proj4.defs([
-    [ "EPSG:25833",
-      "+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs", ],
+    [
+      "EPSG:25833",
+      "+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
+    ],
     ["EPSG:4258", "+proj=longlat +ellps=GRS80 +no_defs"],
   ]);
   easting = parseFloat(easting);
@@ -874,7 +876,7 @@ const maps_raw = [
     domain: "www.norgeskart.no",
     description: "Outdoor, POI",
     getUrl(lat, lon, zoom) {
-      const [easting, northing] = WGS84ToUTM(lat,lon);
+      const [easting, northing] = WGS84ToUTM(lat, lon);
       return (
         "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=" +
         zoom +
@@ -891,7 +893,7 @@ const maps_raw = [
 
       if (match) {
         const [, zoom, northing, easting] = match;
-        const [lat, lon] = UTMToWGS84(easting,northing);
+        const [lat, lon] = UTMToWGS84(easting, northing);
         return [lat, lon, Math.round(Number(zoom))];
       }
     },
@@ -1834,7 +1836,6 @@ const maps_raw = [
     getUrl(lat, lon, zoom) {
       return (
         "https://www.cyclosm.org/#map=" +
-
         zoom +
         "/" +
         lat +
@@ -2477,7 +2478,7 @@ const maps_raw = [
     },
   },
   {
-    //https://www.peakfinder.org/?lat=46.6052&lng=8.3217&azi=0&zoom=4&ele=1648
+    // https://www.peakfinder.com/?lat=63.47689&lng=10.88333&azi=0&alt=0&fov=103.35&cfg=s&name=
     name: "PeakFinder",
     category: OUTDOOR_CATEGORY,
     default_check: true,
@@ -2495,11 +2496,11 @@ const maps_raw = [
     },
     getLatLonZoom(url) {
       const match = url.match(
-        /www\.peakfinder\.org\/.*\?lat=(-?\d[0-9.]*)&lng=(-?\d[0-9.]*)&azi=[0-9]*&zoom=(\d[0-9.]*)/
+        /peakfinder\.com\/.*\?lat=(-?\d[0-9.]*)&lng=(-?\d[0-9.]*)/
       );
       if (match) {
-        const [, lat, lon, zoom] = match;
-        return [lat, lon, Math.round(Number(zoom))];
+        const [, lat, lon] = match;
+        return [lat, lon, 11.0];
       }
     },
   },
