@@ -2653,7 +2653,7 @@ const maps_raw = [
     },
   },
   {
-    //https://map.openseamap.org/?zoom=6&lat=53.32140&lon=2.86829
+    // https://map.openseamap.org/?zoom=13.5&lon=10.81721&lat=54.10776&layers=TFTFFFTFFTFFFFFFFFFFFF
     name: "OpenSeaMap",
     category: WATER_CATEGORY,
     default_check: true,
@@ -2671,10 +2671,11 @@ const maps_raw = [
     },
     getLatLonZoom(url) {
       const match = url.match(
-        /map\.openseamap\.org\/\?zoom=(\d{1,2})&lat=(-?\d[0-9.]*)&lon=(-?\d[0-9.]*)/
+        /map\.openseamap\.org\/\?zoom=(-?\d[0-9.]*)&lon=(-?\d[0-9.]*)&lat=(-?\d[0-9.]*)/
       );
       if (match) {
-        let [, zoom, lat, lon] = match;
+        let [, zoom, lon, lat] = match;
+        zoom = Math.round(Number(zoom));
         return [lat, lon, zoom];
       }
     },
