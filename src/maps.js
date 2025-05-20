@@ -447,6 +447,7 @@ const maps_raw = [
   },
   {
     // https://www.flosm.org/de/Wassersport.html?lat=4.88779867&lon=7.08481579&r=238418.58&st=0&sw=anchorage,beacon,boathoist,boatyard,canoe,canoeing,crane,dock,ferryroute,ferrystop,ferryterminal,harbour,harbourmaster,marina,marinaberth,mooring,mooringbuoy,mooringitem,mooringprivate,pier,portfacilityberth,portfacilityoffice,rowing,seamarkbeacon,seamarkbuoy,seamarknotice,separationzone,shipwreck,slipway,watermotorboat,waternoboat,waterpoint,waterrowboat,watership,waterwayfuel,waterwayguide,waterwaylockgate,waterwayweir
+    // https://www.flosm.org/de/Wassersport.html?lat=47.2824725&lon=12.2910200&r=500.00000&st=0&sw=anchorage,beacon,boathoist,boatyard,canoe,canoeing,crane,dock,ferryroute,ferrystop,ferryterminal,harbour,harbourmaster,marina,marinaberth,mooring,mooringbuoy,mooringitem,mooringprivate,pier,portfacilityberth,portfacilityoffice,rowing,seamarkbeacon,seamarkbuoy,seamarknotice,separationzone,shipwreck,slipway,watermotorboat,waternoboat,waterpoint,waterrowboat,watership,waterwayfuel,waterwayguide,waterwaylockgate,waterwayweir
 
     name: "flosm",
     category: WATER_CATEGORY,
@@ -470,7 +471,7 @@ const maps_raw = [
       );
       if (match) {
         let [, lat, lon, radius] = match;
-        zoom = getZoomLevel(radius);
+        let zoom = getZoomLevel(radius);
         zoom = Math.round(zoom);
         return [lat, lon, zoom];
       }
@@ -1428,25 +1429,6 @@ const maps_raw = [
       );
       if (match) {
         let [, zoom, lat, lon] = match;
-        return [lat, lon, zoom];
-      }
-    },
-  },
-  {
-    name: "map.orhyginal",
-    category: MISC_CATEGORY,
-    default_check: true,
-    domain: "orhyginal.fr",
-    description: "Portal of many map services",
-    getUrl(lat, lon, zoom) {
-      return "https://map.orhyginal.fr/#" + zoom + "/" + lat + "/" + lon;
-    },
-    getLatLonZoom(url) {
-      const match = url.match(
-        /map\.orhyginal\.fr.*#(\d[0-9]*)\/(-?\d[0-9.]*)\/(-?\d[0-9.]*)/
-      );
-      if (match) {
-        const [, zoom, lat, lon] = match;
         return [lat, lon, zoom];
       }
     },
