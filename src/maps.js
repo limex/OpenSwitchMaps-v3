@@ -2365,7 +2365,7 @@ const maps_raw = [
         /flickr\.com\/map\?&fLat=(-?\d[0-9.]*)&fLon=(-?\d[0-9.]*)&zl=(\d{1,2})/
       );
       if (match) {
-        let [, lon, lat, zoom] = match;
+        let [, lat, lon, zoom] = match;
         return [lat, lon, zoom];
       }
     },
