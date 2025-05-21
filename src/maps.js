@@ -528,27 +528,6 @@ const maps_raw = [
     },
   },
   {
-    name: "OpenStreetCam",
-    category: POI_CATEGORY,
-    default_check: true,
-    domain: "openstreetcam.org",
-    description: "Crowdsourced street-level imagery available as CC BY-SA",
-    getUrl(lat, lon, zoom) {
-      return (
-        "https://openstreetcam.org/map/@" + lat + "," + lon + "," + zoom + "z"
-      );
-    },
-    getLatLonZoom(url) {
-      const match = url.match(
-        /openstreetcam\.org.*@(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2})/
-      );
-      if (match) {
-        const [, lat, lon, zoom] = match;
-        return [lat, lon, zoom];
-      }
-    },
-  },
-  {
     name: "AlpenvereinActiv",
     category: OUTDOOR_CATEGORY,
     default_check: true,
@@ -797,7 +776,7 @@ const maps_raw = [
     },
     getLatLonZoom(url) {
       const match = url.match(
-        /camping\.info\/.*?area=(-?\d[0-9.]*),(-?\d[0-9.]*),(-?\d[0-9.]*),(-?\d[0-9.]*)&zl=(\d{1,2})/
+        /camping\.info\/.*?area=(-?\d[0-9.]*)%2C(-?\d[0-9.]*)%2C(-?\d[0-9.]*)%2C(-?\d[0-9.]*)&zl=(\d{1,2})/
       );
       if (match) {
         let [, minlon, minlat, maxlon, maxlat, zoom] = match;
@@ -987,7 +966,7 @@ const maps_raw = [
     },
     getLatLonZoom(url) {
       const match = url.match(
-        /opencampingmap\.org\/#(\d{1,2})\/(-?\d[0-9.]*)\/(-?\d[0-9.]*)/
+        /opencampingmap\.org\/.*#(\d{1,2})\/(-?\d[0-9.]*)\/(-?\d[0-9.]*)/
       );
       if (match) {
         const [, zoom, lat, lon] = match;
@@ -1277,7 +1256,16 @@ const maps_raw = [
     domain: "overpass-turbo.eu",
     description: "Power search tool for OpenStreetMap data",
     getUrl(lat, lon, zoom) {
-      return "https://overpass-turbo.eu/?Q=&C=" + lat + ";" + lon + ";" + zoom;
+      return ("https://overpass-turbo.eu/?Q=&C=" + lat + ";" + lon + ";" + zoom);
+    },
+    getLatLonZoom(url) {
+    const match = url.match(
+      /overpass-turbo\.eu\/.*&C=(-?\d[0-9.]*);(-?\d[0-9.]*);(-?\d[0-9.]*)/
+    );
+    if (match) {
+      let [, lat, lon, zoom] = match;
+      return [lat, lon, zoom];
+    }
     },
   },
   {
