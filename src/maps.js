@@ -911,7 +911,7 @@ const maps_raw = [
         lat +
         "/" +
         lon +
-        "Outdoor%20Mapbox,gravel-overlay&profile=m11n-gravel-pre"
+        "/Outdoor%20Mapbox,gravel-overlay&profile=m11n-gravel-pre"
       );
     },
     getLatLonZoom(url) {
