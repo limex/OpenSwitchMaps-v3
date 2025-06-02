@@ -846,10 +846,7 @@ const maps_raw = [
   },
   {
     // https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=11&lat=6947649.55&lon=32630.40
-
-    // https://bikerouter.de/#map=11/59.9787/10.7378/standard,gravel-overlay&profile=m11n-gravel-pre
     // https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=11&lat=6649790.33&lon=263090.69&sok=oslo&markerLat=6649284.978414578&markerLon=261503.27074663478&p=searchOptionsPanel
-
     name: "Norgeskart",
     category: OUTDOOR_CATEGORY,
     default_check: true,
@@ -905,7 +902,7 @@ const maps_raw = [
     default_check: true,
     domain: "bikerouter.de",
     description: "Best bicycle routing on this planet",
-    // https://bikerouter.de/#map=14/47.0777/15.4904/bikerouter-outdoors,gravel-overlay&profile=m11n-gravel-pre
+    // https://bikerouter.de/#map=14/45.9540/10.9450/Outdoor%20Mapbox,gravel-overlay&profile=m11n-gravel-pre
     getUrl(lat, lon, zoom) {
       return (
         "https://bikerouter.de/#map=" +
@@ -914,7 +911,7 @@ const maps_raw = [
         lat +
         "/" +
         lon +
-        "/bikerouter-outdoors,gravel-overlay&profile=m11n-gravel-pre"
+        "Outdoor%20Mapbox,gravel-overlay&profile=m11n-gravel-pre"
       );
     },
     getLatLonZoom(url) {
@@ -1449,6 +1446,7 @@ const maps_raw = [
     },
   },
   {
+    // https://www.trailforks.com/routes/routesbytrails/?activitytype=1&z=12.5&lat=45.93807&lon=10.91529&content=trails,labels,region,poi,directory,polygon,eventpremium,report,waypoint,nst,routes_featured&trailids=659922
     name: "Trailforks",
     category: OUTDOOR_CATEGORY,
     default_check: true,
@@ -1466,10 +1464,11 @@ const maps_raw = [
     },
     getLatLonZoom(url) {
       const match = url.match(
-        /trailforks\.com\/map\/\?z=(-?\d[0-9.]*)&lat=(-?\d[0-9.]*)&lon=(-?\d[0-9.]*)/
+       /trailforks\.com\/.*z=(-?\d[0-9.]*)&lat=(-?\d[0-9.]*)&lon=(-?\d[0-9.]*)/
       );
       if (match) {
         let [, zoom, lat, lon] = match;
+        zoom = Math.round(zoom);
         return [lat, lon, zoom];
       }
     },
@@ -1603,7 +1602,7 @@ const maps_raw = [
       }
     },
   },
-  {
+  { // _REMOVE_
     // https://www.4umaps.com/map.htm?zoom=14&lat=46.72587&lon=14.46407&layers=B00
     name: "4umaps",
     category: OUTDOOR_CATEGORY,
@@ -2775,29 +2774,6 @@ const maps_raw = [
       );
       if (match) {
         const [, lon, lat, zoom] = match;
-        return [lat, normalizeLon(lon), Math.round(Number(zoom))];
-      }
-    },
-  },
-  {
-    //https://www.lightningmaps.org/#m=oss;t=3;s=0;o=0;b=;ts=0;y=35.5065;x=139.8395;z=10;d=2;dl=2;dc=0;
-    name: "LightningMaps",
-    category: WEATHER_CATEGORY,
-    default_check: false,
-    domain: "lightningmaps.org",
-    description: "Realtime lightning map",
-    getUrl(lat, lon, zoom) {
-      return `https://www.lightningmaps.org/#m=oss;t=3;s=0;o=0;b=;ts=0;y=${lat};x=${lon};z=${Math.min(
-        zoom,
-        15
-      )};d=2;dl=2;dc=0`;
-    },
-    getLatLonZoom(url) {
-      const match = url.match(
-        /lightningmaps\.org\/.*;y=(-?\d[0-9.]*);x=(-?\d[0-9.]*);z=(\d[0-9.]*)/
-      );
-      if (match) {
-        const [, lat, lon, zoom] = match;
         return [lat, normalizeLon(lon), Math.round(Number(zoom))];
       }
     },
