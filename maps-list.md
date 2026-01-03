@@ -1,82 +1,3 @@
-# OpenSwitchMaps (Manifest v3)
-
-Map service switcher as Chrome Extension 
-
-This is a fork from ![tankaru/OpenSwitchMaps](https://github.com/tankaru/OpenSwitchMaps). Kudos for the great work!! Thanks!
-
-
-## Motivation for fork (New Features & Fixes)
-
-- Chrome Manifest v3
-- Some cleanup done. Added new maps.
-- Chanced the Categories, because some grew to big, while others remained small.
-- Switched behavour in the Map Popup: Left Click now opens in new Tab, Middle Click opens in same Tab
-- Sorted the Maps by Name
-- Show Descriptions while MouseOver in Options Popup
-- Existing Extension was listing the Categories in Columns. This limited the number of Categories. Also was a waste of space with smaller Categories. Solution: Render Categories in rows
-- Some issues with v3 upgrade triggered removal of Firefox Browser Support, now Chrome only.
-- For Performance/Usability Reasons, many map services where removed
-
-
-## You are missing maps?
-
-- Raise an [issue](https://github.com/limex/OpenSwitchMaps-v3/issues) in github. I might add it, if I like the map.
-- But: I will DEFINITLY NOT add all the maps of the original Repo from tankaru.
-
-## You still want that map added?
-
-- Fork the code, [add it yourself](dev-howto.md).
-- I didn't change the code segment, that lists the maps. It is easy to add your map, if you know Javascript. Or github copilot 😉
-
-
-## Install
-
-you have 3 options ...
-
-### a) from Chrome Marketplace
-
-- [Chrome webstore](https://chromewebstore.google.com/detail/openswitchmapslimexv3/ahkklpcjhdbcmfkikkifnaonfakmeiga)
-- Opening the Dialogs on _first_ click take some seconds to show up. Be patient. :)
-
-
-### b) Load unpacked dist directory from github
-
-1. Download the /dist Directory from github (Clone the Code or Code -> Download ZIP) to a Directory of of your choice
-1. Add to your Chrome/Firefox
-   - Chrome: chrome://extensions/ -> Load unpacked
-
-### b) from source code
-
-[Development HowTo](dev-howto.md)
-
-## How to use
-
-1. Open Google map, for example (https://www.google.de/maps/place/Vienna/@48.2092464,16.850411,11z)
-1. You will see an earth icon near URL bar. Click it.
-1. Select OpenStreetMap, for example.
-1. You can jump to OpenStreetMap at the same position
-1. Left click: Open in a new tab. Middle click: Open the same tab.
-2. Blue Extension Icon: You are on a suppored map.
-3. Red Extension Icon: not supported map or any other random page.
-
-## Settings
-
-Show/hide maps:
-
-1. click the earth icon,
-1. Select "Options"
-1. It might take some seconds for the popup to apear. Collecting all the data takes some time.
-1. Check/uncheck each map to show/hide it.
-
-
-## Screenshots
-
-
-![Screenshot of Chrome](Screenshot-chrome.png)
-![Settings](Screenshot-chrome-settings.png)
-
-
-## Supported map services
 
 1. Google Maps, [google.com](https://google.com), Misc
 2. STRAVA Heatmap SUP, [strava.com](https://strava.com), Water, Heatmap of all athletes
@@ -186,16 +107,6 @@ Show/hide maps:
 106. Level0 Editor, [level0.osmz.ru](https://level0.osmz.ru), OpenStreetMap, low-level OSM Editor
 107. OsmAnd, [osmand.net](https://osmand.net), Outdoor
 108. Waze Editor, [waze.com](https://waze.com), OpenStreetMap, Maintain the waze maps
+---
 
-## Similar softwares
-
-- [MapJumper Plus](https://chrome.google.com/webstore/detail/mapjumper-plus/mdhfopoodheacfapdohpmjndgnfmdecj), by Tomas Kafka
-- [Maps URL Converter](https://chrome.google.com/webstore/detail/maps-url-converter/ehnoijojkgigcmlimlndncbdfcmmlgmi), by lamphanviet.com
-- [Mapswitch](https://chrome.google.com/webstore/detail/mapswitch/ineobcbceekmckhjifhdmglkhgngnhmd), by evgeny.ger
-- [Map Switcher](https://chrome.google.com/webstore/detail/map-switcher/fanpjcbgdinjeknjikpfnldfpnnpkelb), by david.r.edgar
-- [Map Helper](https://chrome.google.com/webstore/detail/map-helper/ihllleemlchjegcfnaglokgamafhafda), by petrovnn
-- [MapSwitcher](https://addons.mozilla.org/ja/firefox/addon/map-switcher/), by František Nesveda
-
-## Privacy
-
-Please be aware that when you use this extension to switch between map services, your location data might be forwarded to the respective map services listed above. Each map service has its own privacy policy, and we recommend reviewing them to understand how your data is handled.
+Total: 108 maps
