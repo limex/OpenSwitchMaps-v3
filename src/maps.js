@@ -2900,6 +2900,60 @@ const maps_raw = [
     },
   },
   {
+    // https://my-heat.b05ch.dev/search/map?name=&start_begin=&start_end=&distance_km_min=&distance_km_max=&kind=2&zoom=9&lat=47.01584&lon=15.86151
+    name: "My-Heat Search Map",
+    category: OUTDOOR_CATEGORY,
+    default_check: true,
+    domain: "my-heat.b05ch.dev",
+    description: "My-Heat Search Map",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://my-heat.b05ch.dev/search/map?name=&start_begin=&start_end=&distance_km_min=&distance_km_max=&kind=2&zoom=" +
+        zoom +
+        "&lat=" +
+        lat +
+        "&lon=" +
+        lon
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /my-heat\.b05ch\.dev\/search\/map\?.*zoom=(-?\d[0-9.]*).*&lat=(-?\d[0-9.]*).*&lon=(-?\d[0-9.]*)/
+      );
+      if (match) {
+        let [, zoom, lat, lon] = match;
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
+    // https://my-heat.b05ch.dev/photo/map?zoom=12&lat=46.7787&lon=14.7713
+    name: "My-Heat Photo Map",
+    category: OUTDOOR_CATEGORY,
+    default_check: true,
+    domain: "my-heat.b05ch.dev",
+    description: "My-Heat Photo Map",
+    getUrl(lat, lon, zoom) {
+      return (
+        "https://my-heat.b05ch.dev/photo/map?zoom=" +
+        zoom +
+        "&lat=" +
+        lat +
+        "&lon=" +
+        lon
+      );
+    },
+    getLatLonZoom(url) {
+      const match = url.match(
+        /my-heat\.b05ch\.dev\/photo\/map\?.*zoom=(-?\d[0-9.]*).*&lat=(-?\d[0-9.]*).*&lon=(-?\d[0-9.]*)/
+      );
+      if (match) {
+        let [, zoom, lat, lon] = match;
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
     // https://peakvisor.com/panorama.html?lat=47.07440&lng=12.69390&alt=4598&yaw=-52.70&pitch=-22.30&hfov=60.00
     name: "Peakvisor",
     category: OUTDOOR_CATEGORY,

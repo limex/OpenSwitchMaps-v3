@@ -29,3 +29,6 @@ You get settings for `clientId, clientSecret, refreshToken & extensionId`
 
 `publish`: Uses `publish-browser-extension` to publish the extension to the Chrome Web Store.
 
+## Extract Supported maps to MD
+
+`node extract-maps.js` creates `maps-list.md`
