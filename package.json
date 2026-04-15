@@ -6,8 +6,8 @@
     "dev": "parcel watch src/manifest.json src/popup.html src/options.html src/background.js",
     "build": "rm -rf dist && sh inc_patch.sh && parcel build src/manifest.json src/popup.html src/options.html src/background.js && cp src/icon128.png dist/ && cp src/icon128-no.png dist/ && node deploy.js",
     "zip": "mkdir -p zip && cd dist && zip -r ../zip/OpenSwitchMaps.zip .",
-    "publish": "npx publish-browser-extension --chrome-zip zip/OpenSwitchMaps.zip",
-    "publish-init": "npx publish-browser-extension init"
+    "publish": "dotenv -e .env.submit -- npx chrome-webstore-upload --source zip/OpenSwitchMaps.zip",
+    "publish-init": "npx chrome-webstore-upload-keys"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,11 @@
   "homepage": "https://github.com/limex/OpenSwitchMaps-v3#readme",
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.1.2",
+    "chrome-webstore-upload-cli": "^3.5.0",
+    "chrome-webstore-upload-keys": "^2.0.1",
+    "dotenv-cli": "^11.0.0",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-web-extension": "^1.6.1",
-    "publish-browser-extension": "^3.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {

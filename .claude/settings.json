@@ -3,7 +3,13 @@
     "allow": [
       "Bash(npm run:*)",
       "Bash(npm rebuild:*)",
-      "Bash(node -e ':*)"
+      "Bash(node -e ':*)",
+      "Bash(npm show:*)",
+      "Bash(npm install:*)",
+      "Bash(npx publish-browser-extension:*)",
+      "Bash(npx chrome-webstore-upload *)",
+      "Bash(npx chrome-webstore-upload-keys *)",
+      "Bash(npm uninstall *)"
     ]
   }
 }
