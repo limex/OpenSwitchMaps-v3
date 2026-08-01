@@ -24,9 +24,12 @@ echo "Write to $package_file"
 sed -i "" "s/\"version\": \"$version\"/\"version\": \"$new_version\"/g" $package_file
 
 echo "Write to $package_lock_file" 
-# sed -i "s/\"version\": \"$version\"/\"version\": \"$new_version\"/g" $manifest_file
-# macos version
-# TODO: Limit to only the first 2 occurances
-sed -i "" "s/\"version\": \"$version\"/\"version\": \"$new_version\"/g" $package_lock_file
-
+node -e '
+const fs = require("fs");
+const [file, version] = process.argv.slice(1);
+const lockfile = JSON.parse(fs.readFileSync(file, "utf8"));
+lockfile.version = version;
+lockfile.packages[""].version = version;
+fs.writeFileSync(file, `${JSON.stringify(lockfile, null, 2)}\n`);
+' "$package_lock_file" "$new_version"
 

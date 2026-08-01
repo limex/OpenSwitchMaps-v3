@@ -18,7 +18,13 @@
             @change="setMapEnabled(map, $event.target.checked)"
           >
           <div class="tooltip">
-            <img :src="'https://www.google.com/s2/favicons?domain=' + map.domain">
+            <img
+              :src="'favicons/' + map.domain + '.png'"
+              width="16"
+              height="16"
+              alt=""
+              @error="useDefaultFavicon"
+            >
             <span class="tooltiptext">{{ map.description }}&nbsp;</span>
           </div>
           <div class="tooltip">
@@ -44,6 +50,10 @@ export default {
     };
   },
   methods: {
+    useDefaultFavicon(event) {
+      event.target.onerror = null;
+      event.target.src = "favicons/default.svg";
+    },
     setMapEnabled(map, enabled) {
       storage.setMapEnabled(map, enabled);
     },

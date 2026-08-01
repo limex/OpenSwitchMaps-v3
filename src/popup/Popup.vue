@@ -13,7 +13,11 @@
         <label class="maplabel">
           <div class="tooltip">
             <img
-              :src="'https://www.google.com/s2/favicons?domain=' + map.domain"
+              :src="'favicons/' + map.domain + '.png'"
+              width="16"
+              height="16"
+              alt=""
+              @error="useDefaultFavicon"
             />
             <span class="tooltiptext">{{ map.description }}&nbsp;</span>
           </div>
@@ -42,6 +46,10 @@ module.exports = {
     },
   },
   methods: {
+    useDefaultFavicon(event) {
+      event.target.onerror = null;
+      event.target.src = "favicons/default.svg";
+    },
     openMapInCurrentTab(map) {
       this.open(map, (mapUrl, tab) => {
         chrome.scripting.executeScript({
