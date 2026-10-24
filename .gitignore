@@ -7,3 +7,4 @@
 dist/.DS_Store
 config.json
 .env.submit
+.DS_Store
