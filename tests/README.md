@@ -1,5 +1,17 @@
 # Map round-trip regression tests
 
+## Options sync verification — 2026-10-24
+
+Build 1.8.16 explicitly uses `chrome.storage.sync` for map selections and ignores
+changes from other storage areas. Direct CDP verification in the dedicated Chrome
+Beta profile confirmed all 111 checkboxes render, a checkbox change writes to sync
+storage and survives page reload, and both Options and the popup react to a sync
+storage change. Original settings were restored and temporary tabs closed.
+The settings occupied 2,175 bytes, below the 8,192-byte per-item quota.
+Cross-device transfer was not tested: the profile is not signed in to Chrome.
+The repository build and all five source tests passed; the external deployment
+copy was denied by the filesystem sandbox.
+
 Requires Node 22.12+ and installed project dependencies.
 
 Origin: `https://bikerouter.de/#map=13/46.6478/12.1939/standard,mapterhorn-hillshading&profile=hiking-beta`

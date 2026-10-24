@@ -2,7 +2,7 @@ const Vue = require('vue').default;
 const { getMapMetadata } = require('../map-catalog');
 
 const storage = chrome.storage;
-const storageArea = storage.sync || storage.local;
+const storageArea = storage.sync;
 
 const enabledMaps = Vue.observable(Object.fromEntries(
   getMapMetadata().map((map) => [
@@ -30,8 +30,8 @@ function setMapEnabled(map, enabled) {
   storageArea.set({enabledMaps}, () => {});
 }
 
-function onChanged(changes) {
-  if (changes.enabledMaps && changes.enabledMaps.newValue) {
+function onChanged(changes, areaName) {
+  if (areaName === 'sync' && changes.enabledMaps && changes.enabledMaps.newValue) {
     Object.assign(enabledMaps, changes.enabledMaps.newValue);
   }
 }

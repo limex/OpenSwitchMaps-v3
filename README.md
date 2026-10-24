@@ -68,6 +68,10 @@ Show/hide maps:
 1. It might take some seconds for the popup to apear. Collecting all the data takes some time.
 1. Check/uncheck each map to show/hide it.
 
+Map selections are saved automatically in Chrome Sync storage. With Chrome Sync
+enabled, they follow the same extension across your signed-in Chrome browsers.
+They remain saved locally when sync is disabled or Chrome is offline.
+
 
 ## Screenshots
 

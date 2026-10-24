@@ -57,15 +57,6 @@ export default {
       storage.setMapEnabled(map, enabled);
     },
   },
-  mounted() {
-    chrome.storage.local.get(['key'], (result) => {
-      const value = result.key || 'default_value'; // Replace 'default_value' with the actual default value or logic
-
-      chrome.storage.local.set({ key: value }, () => {
-        console.log('Value is set to ' + value);
-      });
-    });
-  },
 };
 </script>
 
