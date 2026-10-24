@@ -192,7 +192,7 @@ const maps_raw = [
   {
     // https://www.strava.com/maps/global-heatmap?style=light&terrain=false&sport=StandUpPaddling&gColor=hot&gOpacity=100&labels=true&poi=true#11.05/46.9717/15.0214
     // https://www.strava.com/maps/global-heatmap/personal-heatmap/segments?style=light&terrain=false&sport=StandUpPaddling&gColor=hot&gOpacity=100&labels=true&poi=true&cPhotos=true&pColor=blue&pCommutes=false&pHidden=true&pDate=ALL_TIME&pPrivate=true&pPhotos=true&pClusters=true&sType=all&sElevation=all&sSurface=0&sMin=0#15.25/48.325148/14.07017
-    name: "STRAVA Heatmap SUP",
+    name: "STRAVA Heat SUP",
     category: WATER_CATEGORY,
     default_check: true,
     domain: "strava.com",

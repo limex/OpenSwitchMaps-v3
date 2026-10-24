@@ -91,9 +91,10 @@ module.exports = {
 </script>
 <style>
 body {
+  width: 800px;
+  max-width: 100%;
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 10pt;
-  display: table;
   padding: 0;
   margin: 0;
 }
@@ -124,7 +125,12 @@ p.column:hover {
 }
 
 .map {
-  min-width: 820px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.title {
+  grid-column: 1 / -1;
 }
 
 .options-link {
@@ -143,34 +149,30 @@ p.column:hover {
 
 
 .column {
-  display: inline-table;
-  vertical-align: top;
-  white-space: nowrap;
-  width: 150px;
-  /* float:left; */
-  /* clear:both; */
-  overflow: hidden;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.maplabel {
+  display: flex;
+  align-items: flex-start;
+}
+
+.maplabel > .tooltip:first-child {
+  flex-shrink: 0;
 }
 
 #mapmenu {
   display: contents;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  /* width: 450px;
-  column-count: 3;
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-flow: 3 wrap; */
 }
 
 .tooltip {
-  display: inherit;
+  position: relative;
 }
 
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  /* width: 120px; */
+  display: none;
   background-color: rgba(0, 0, 0, 0.671);
   color: #fff;
   text-align: center;
@@ -179,13 +181,19 @@ p.column:hover {
 
   /* Position the tooltip */
   white-space: normal;
-  width: 0px;
+  width: 100px;
   position: absolute;
+  left: 0;
+  top: 100%;
   z-index: 10;
 }
 
+.column:nth-child(5n + 1) .tooltiptext {
+  left: auto;
+  right: 0;
+}
+
 .tooltip:hover .tooltiptext {
-  visibility: visible;
-  width: 100px;
+  display: block;
 }
 </style>
