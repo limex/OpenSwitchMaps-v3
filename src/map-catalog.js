@@ -10,11 +10,22 @@ function getMapMetadata() {
   return maps;
 }
 
-function groupMapsByCategory(maps) {
-  return maps.reduce((groups, map) => {
+function groupMapsByCategory(maps, order) {
+  const groups = maps.reduce((groups, map) => {
     (groups[map.category] || (groups[map.category] = [])).push(map);
     return groups;
   }, {});
+  if (!order) return groups;
+  return Object.fromEntries(normalizeCategoryOrder(order)
+    .filter(category => groups[category])
+    .map(category => [category, groups[category]]));
 }
 
-module.exports = { getMapMetadata, groupMapsByCategory };
+const categories = [...new Set(maps.map(map => map.category))];
+
+function normalizeCategoryOrder(order) {
+  const known = Array.isArray(order) ? order.filter(category => categories.includes(category)) : [];
+  return [...new Set([...known, ...categories])];
+}
+
+module.exports = { getMapMetadata, groupMapsByCategory, normalizeCategoryOrder };

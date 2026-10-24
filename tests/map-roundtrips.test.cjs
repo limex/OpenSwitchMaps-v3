@@ -16,7 +16,7 @@ execFileSync(path.join(root, 'node_modules/.bin/parcel'), [
 ], { cwd: root, stdio: 'pipe' });
 global.chrome = { tabs: { query: (_query, callback) => callback([]) } };
 const { getAllMaps, getLatLonZoom, isMatchingAMap } = require(path.join(output, 'maps.js'));
-const { getMapMetadata, groupMapsByCategory } = require('../src/map-catalog');
+const { getMapMetadata, groupMapsByCategory, normalizeCategoryOrder } = require('../src/map-catalog');
 delete global.chrome;
 
 const origin = 'https://bikerouter.de/#map=13/46.6478/12.1939/standard,mapterhorn-hillshading&profile=hiking-beta';
@@ -39,6 +39,18 @@ function assertOrigin(url) {
 }
 
 test('reads the supplied Bikerouter origin', () => assertOrigin(origin));
+test('saved category orders tolerate stale entries and append new categories', () => {
+  const defaults = Object.keys(groupMapsByCategory(getMapMetadata()));
+  const last = defaults[defaults.length - 1];
+  assert.deepEqual(normalizeCategoryOrder([last, 'Removed category', last]),
+    [last, ...defaults.slice(0, -1)]);
+  assert.deepEqual(normalizeCategoryOrder(null), defaults);
+  assert.deepEqual(normalizeCategoryOrder('invalid'), defaults);
+  const visible = getMapMetadata().filter(map => map.category !== last);
+  const reversed = defaults.slice().reverse();
+  assert.deepEqual(Object.keys(groupMapsByCategory(visible, reversed)),
+    reversed.filter(category => category !== last));
+});
 test('the lightweight catalog and full map list have identical metadata and order', () => {
   const metadata = getMapMetadata();
   assert.equal(new Set(metadata.map(map => map.name)).size, metadata.length);

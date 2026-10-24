@@ -41,7 +41,7 @@ module.exports = {
       const enabledMaps = getAllMaps().filter(
         (map) => storage.observableEnabledMaps[map.name]
       );
-      return groupMapsByCategory(enabledMaps);
+      return groupMapsByCategory(enabledMaps, storage.observablePreferences.categoryOrder);
     },
   },
   methods: {

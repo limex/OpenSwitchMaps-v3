@@ -72,6 +72,12 @@ Map selections are saved automatically in Chrome Sync storage. With Chrome Sync
 enabled, they follow the same extension across your signed-in Chrome browsers.
 They remain saved locally when sync is disabled or Chrome is offline.
 
+Drag the category cards at the top of Options to change the category order in
+both Options and the map popup. Cards wrap onto additional rows. The order saves
+automatically through Chrome Sync. You can also focus a card and use the left or
+right arrow key to move it. Categories with no selected maps remain available
+in Options but stay hidden in the popup; newly added categories appear at the end.
+
 
 ## Screenshots
 

@@ -1,5 +1,27 @@
 # Map round-trip regression tests
 
+## Category ordering verification — 2026-10-24
+
+Build 1.8.28 replaces card-target drops with a blue insertion marker between
+cards. Direct CDP checks in Chrome Beta verified dragging across wrapped rows
+to the row end and dropping into the gap between the first two cards. The marker
+appeared in that gap and cleared after dropping; the resulting order persisted.
+Options reload, toolbar popup ordering, and live sync updates also passed.
+The visible heading and instructions were removed in build 1.8.27.
+
+Build 1.8.26 adds wrapping category cards above Options, with a divider before
+the map selections. The shared category order is saved in Chrome Sync.
+Direct CDP verification in Chrome Beta confirmed the installed extension points
+to this checkout's `dist` and loads the rebuilt version. At an 800-pixel viewport,
+12 single-line cards wrapped into two rows and all 111 checkboxes rendered.
+Native mouse drag plus CDP drag events moved the first card to the last position;
+the category sections reordered, sync storage saved the order, and reloading
+Options preserved it. The real toolbar popup followed the same order. A further
+sync update refreshed both open views; local-storage changes were ignored.
+Original settings were restored and the temporary Options tab was closed.
+Cross-device transfer was not tested. Six source tests and the production build
+passed; the external deployment copy was denied by the filesystem sandbox.
+
 ## Camping.Info worker fix — 2026-10-24
 
 Build 1.8.22 guards the bounding-box helper's screen access: background URL
