@@ -38,14 +38,13 @@
 </template>
 
 <script>
-import { groupBy } from 'lodash-es';
 import storage from './storage';
-import { getAllMaps } from '../maps';
+const { getMapMetadata, groupMapsByCategory } = require('../map-catalog');
 
 export default {
   data() {
     return {
-      columns: groupBy(getAllMaps(), 'category'),
+      columns: groupMapsByCategory(getMapMetadata()),
       enabledMaps: storage.observableEnabledMaps,
     };
   },

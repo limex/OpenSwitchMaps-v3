@@ -31,18 +31,17 @@
   </div>
 </template>
 <script>
-import { filter, groupBy } from 'lodash-es';
+const { groupMapsByCategory } = require('../map-catalog');
 const { getLatLonZoom, getAllMaps } = require("../maps");
 const storage = require("../options/storage");
 
 module.exports = {
   computed: {
     columns() {
-      const enabledMaps = filter(
-        getAllMaps(),
+      const enabledMaps = getAllMaps().filter(
         (map) => storage.observableEnabledMaps[map.name]
       );
-      return groupBy(enabledMaps, "category");
+      return groupMapsByCategory(enabledMaps);
     },
   },
   methods: {

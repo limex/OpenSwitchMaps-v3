@@ -1,0 +1,767 @@
+[
+  {
+    "name": "Google Maps",
+    "category": "Misc",
+    "default_check": true,
+    "domain": "google.com"
+  },
+  {
+    "name": "STRAVA Heat SUP",
+    "category": "Water",
+    "default_check": true,
+    "domain": "strava.com",
+    "description": "Heatmap of all athletes"
+  },
+  {
+    "name": "Bing",
+    "category": "Misc",
+    "default_check": true,
+    "domain": "www.bing.com"
+  },
+  {
+    "name": "OpenStreetMap",
+    "category": "OpenStreetMap",
+    "default_check": true,
+    "domain": "openstreetmap.org"
+  },
+  {
+    "name": "Mapillary",
+    "category": "POI",
+    "default_check": true,
+    "domain": "mapillary.com",
+    "description": "Crowdsourced street-level imagery available as CC BY-SA"
+  },
+  {
+    "name": "PastVu",
+    "category": "POI",
+    "default_check": true,
+    "domain": "pastvu.com",
+    "description": "Retro View"
+  },
+  {
+    "name": "WikiShootMe",
+    "category": "POI",
+    "default_check": true,
+    "domain": "wikishootme.toolforge.org",
+    "description": "Wikimedia, Flickr"
+  },
+  {
+    "name": "Wandrer",
+    "category": "Cycling",
+    "default_check": true,
+    "domain": "wandrer.earth",
+    "description": "Hike Ride done"
+  },
+  {
+    "name": "OWL Map",
+    "category": "OpenStreetMap",
+    "default_check": true,
+    "domain": "map.osm.wikidata.link",
+    "description": "Wikidata items"
+  },
+  {
+    "name": "Open Trip",
+    "category": "POI",
+    "default_check": true,
+    "domain": "opentripmap.com",
+    "description": "Sightseeing, POI"
+  },
+  {
+    "name": "WaterWayMap",
+    "category": "Water",
+    "default_check": true,
+    "domain": "waterwaymap.org",
+    "description": "by lenght, navigatable"
+  },
+  {
+    "name": "flosm",
+    "category": "Water",
+    "default_check": true,
+    "domain": "flosm.org",
+    "description": "Watersport"
+  },
+  {
+    "name": "ELWIS",
+    "category": "Water",
+    "default_check": true,
+    "domain": "elwis.de",
+    "description": "Wasserstraßen DE"
+  },
+  {
+    "name": "Grade.de",
+    "category": "Water",
+    "default_check": true,
+    "domain": "grade.de",
+    "description": "by lenght, navigatable"
+  },
+  {
+    "name": "AlpenvereinActiv",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "alpenvereinaktiv.com",
+    "description": "more than OA"
+  },
+  {
+    "name": "XC-Ski OA",
+    "category": "Winter",
+    "default_check": true,
+    "domain": "outdooractive.com",
+    "description": "XC Routes"
+  },
+  {
+    "name": "OutdoorActive",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "outdooractive.com",
+    "description": "Tours for multiple Sports"
+  },
+  {
+    "name": "Freemap.sk",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "freemap.sk",
+    "description": "Map and Features for Sk"
+  },
+  {
+    "name": "Wikiloc",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "wikiloc.com",
+    "description": "Trail & Waypoint Community"
+  },
+  {
+    "name": "Waymarked Trails",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "hiking.waymarkedtrails.org",
+    "description": "Show hiking, cycling, ski routes"
+  },
+  {
+    "name": "Stellplatz.Info",
+    "category": "Camper",
+    "default_check": true,
+    "domain": "stellplatz.info",
+    "description": "like Camping.info App"
+  },
+  {
+    "name": "DualMaps",
+    "category": "Tools",
+    "default_check": true,
+    "domain": "mapchannels.com",
+    "description": "synchronized Maps, Aerial & Street View"
+  },
+  {
+    "name": "Camping.Info",
+    "category": "Camper",
+    "default_check": true,
+    "domain": "camping.info",
+    "description": "like Stellplatz.info"
+  },
+  {
+    "name": "BRouter Web",
+    "category": "Cycling",
+    "default_check": true,
+    "domain": "brouter.de",
+    "description": "Misc Maps, Custom Layer Overpass & XYZ"
+  },
+  {
+    "name": "BRouter Grade.de",
+    "domain": "grade.de",
+    "category": "Water",
+    "default_check": true,
+    "description": "Waterway Routing"
+  },
+  {
+    "name": "Norgeskart",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "www.norgeskart.no",
+    "description": "Outdoor, POI"
+  },
+  {
+    "name": "Flussinfo",
+    "category": "Water",
+    "default_check": true,
+    "domain": "flussinfo.net",
+    "description": "North Germany only"
+  },
+  {
+    "name": "Bikerouter",
+    "category": "Cycling",
+    "default_check": true,
+    "domain": "bikerouter.de",
+    "description": "Best bicycle routing on this planet"
+  },
+  {
+    "name": "CamperMap",
+    "category": "Camper",
+    "default_check": true,
+    "domain": "umap.openstreetmap.fr",
+    "description": "Camper POIs"
+  },
+  {
+    "name": "OpenCamping",
+    "category": "Camper",
+    "default_check": true,
+    "domain": "opencampingmap.org",
+    "description": "Camping Sites"
+  },
+  {
+    "name": "OpenSkiMap",
+    "category": "Winter",
+    "default_check": true,
+    "domain": "openskimap.org",
+    "description": "Ski Slopes, Nordic Ski Trails"
+  },
+  {
+    "name": "Komoot Plan",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "komoot.com",
+    "description": "Plan for multiple Sports"
+  },
+  {
+    "name": "Komoot Discover",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "komoot.com",
+    "description": "Discover for multiple Sports"
+  },
+  {
+    "name": "Refuges Info",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "refuges.info",
+    "description": "Refuges, Parking, Busstation, Water"
+  },
+  {
+    "name": "Park4night",
+    "category": "Camper",
+    "default_check": true,
+    "domain": "park4night.com",
+    "description": "Discover Overnight Parking"
+  },
+  {
+    "name": "Mapy.cz",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "mapy.cz",
+    "description": "Outdoor with geotagged Pics"
+  },
+  {
+    "name": "Zoom Earth",
+    "category": "Satellite",
+    "default_check": true,
+    "domain": "zoom.earth",
+    "description": "Daily Sat Images"
+  },
+  {
+    "name": "mtbmap.cz",
+    "category": "Cycling",
+    "default_check": true,
+    "domain": "mtbmap.cz",
+    "description": "Mountain Bike Map"
+  },
+  {
+    "name": "XS Trails (XC)",
+    "category": "Winter",
+    "default_check": true,
+    "domain": "xctrails.org",
+    "description": "Cross Country Skiing"
+  },
+  {
+    "name": "XS Trails (Climb)",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "xctrails.org",
+    "description": "Rock Climbing"
+  },
+  {
+    "name": "XS Trails (Ski)",
+    "category": "Winter",
+    "default_check": true,
+    "domain": "xctrails.org",
+    "description": "Backcountry Ski Mountaineering"
+  },
+  {
+    "name": "Overpass-turbo",
+    "category": "OpenStreetMap",
+    "default_check": true,
+    "domain": "overpass-turbo.eu",
+    "description": "Power search tool for OpenStreetMap data"
+  },
+  {
+    "name": "Osmose",
+    "category": "OpenStreetMap",
+    "default_check": false,
+    "domain": "osmose.openstreetmap.fr",
+    "description": "OSM QA tool"
+  },
+  {
+    "name": "KeepRight",
+    "category": "OpenStreetMap",
+    "default_check": false,
+    "domain": "keepright.at",
+    "description": "OpenStreetMap QA tool"
+  },
+  {
+    "name": "OSM Inspector",
+    "category": "OpenStreetMap",
+    "default_check": false,
+    "domain": "tools.geofabrik.de",
+    "description": "OpenStreetMap QA tool"
+  },
+  {
+    "name": "Who did it?",
+    "category": "OpenStreetMap",
+    "default_check": true,
+    "domain": "simon04.dev.openstreetmap.org",
+    "description": "OpenStreetMap QA tool"
+  },
+  {
+    "name": "Map compare",
+    "category": "Tools",
+    "default_check": true,
+    "domain": "tools.geofabrik.de",
+    "description": "Compare maps side-by-side"
+  },
+  {
+    "name": "Multimapas",
+    "category": "Tools",
+    "default_check": false,
+    "domain": "javier.jimenezshaw.com",
+    "description": "Compare maps by overlay"
+  },
+  {
+    "name": "NaKarte",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "nakarte.me",
+    "description": "Heatmaps, Panorama, Streetview, ..."
+  },
+  {
+    "name": "Trailforks",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "trailforks.com",
+    "description": "Outdoor Sport Trails"
+  },
+  {
+    "name": "Ventusky",
+    "category": "Weather, Science",
+    "default_check": true,
+    "domain": "ventusky.com",
+    "description": "Weather, Wind, Snow, Waves, Rain, ..."
+  },
+  {
+    "name": "Meteoblue",
+    "category": "Weather, Science",
+    "description": "7d Forecast, Maps Wind, Snow, Waves, Rain, ...",
+    "default_check": true,
+    "domain": "meteoblue.com"
+  },
+  {
+    "name": "Meteoblue Multi",
+    "category": "Weather, Science",
+    "description": "Multi Model 7d Forecast",
+    "default_check": true,
+    "domain": "meteoblue.com"
+  },
+  {
+    "name": "Windy",
+    "category": "Weather, Science",
+    "description": "WebCams on WeatherMap",
+    "default_check": true,
+    "domain": "windy.com"
+  },
+  {
+    "name": "Bergfex",
+    "category": "Outdoor",
+    "description": "Topo, Tracks, Tourism",
+    "default_check": true,
+    "domain": "bergfex.at"
+  },
+  {
+    "name": "4umaps",
+    "category": "Outdoor",
+    "description": "Topo, Trail difficulty",
+    "default_check": false,
+    "domain": "4umaps.com"
+  },
+  {
+    "name": "BigMap 2 (Print)",
+    "category": "Tools",
+    "default_check": false,
+    "domain": "osmz.ru",
+    "description": "Obtain a composed big map image"
+  },
+  {
+    "name": "Satellite Tracker 3D",
+    "category": "POI",
+    "default_check": false,
+    "domain": "stdkmd.net",
+    "description": "Satellite tracker"
+  },
+  {
+    "name": "earth",
+    "category": "Weather, Science",
+    "default_check": true,
+    "domain": "earth.nullschool.net",
+    "description": "Wind, Ocean, Chem, Particulates"
+  },
+  {
+    "name": "Windy.com",
+    "category": "Weather, Science",
+    "default_check": true,
+    "domain": "windy.com",
+    "description": "Wind, Ocean, Chem, Particulates"
+  },
+  {
+    "name": "flightradar24",
+    "category": "POI",
+    "default_check": false,
+    "domain": "flightradar24.com",
+    "description": "Airplane tracker"
+  },
+  {
+    "name": "Traze",
+    "category": "POI",
+    "default_check": false,
+    "domain": "traze.app",
+    "description": "Train tracker"
+  },
+  {
+    "name": "MarineTraffic",
+    "category": "POI",
+    "default_check": false,
+    "domain": "marinetraffic.com",
+    "description": "Ship tracker"
+  },
+  {
+    "name": "CyclOSM",
+    "category": "Cycling",
+    "default_check": true,
+    "description": "for Cyclists",
+    "domain": "cyclosm.org"
+  },
+  {
+    "name": "OpenTopoMap",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "opentopomap.org"
+  },
+  {
+    "name": "EO Browser",
+    "category": "Satellite",
+    "default_check": false,
+    "domain": "sentinel-hub.com",
+    "description": "Satellite sensing image viewer"
+  },
+  {
+    "name": "Macrostrat",
+    "category": "Weather, Science",
+    "default_check": true,
+    "domain": "macrostrat.org",
+    "description": "Geological map"
+  },
+  {
+    "name": "Old maps online",
+    "category": "Misc",
+    "default_check": false,
+    "domain": "oldmapsonline.org"
+  },
+  {
+    "name": "Wikimedia maps",
+    "category": "POI",
+    "default_check": true,
+    "domain": "wikimedia.org"
+  },
+  {
+    "name": "Open Infrastructure",
+    "category": "Misc",
+    "default_check": false,
+    "domain": "openinframap.org",
+    "description": "World's hidden infrastructure (Train, Power, Mobile, ...)"
+  },
+  {
+    "name": "OSM Buildings",
+    "category": "Misc",
+    "default_check": false,
+    "domain": "osmbuildings.org"
+  },
+  {
+    "name": "openrouteservice",
+    "category": "Router",
+    "default_check": true,
+    "domain": "openrouteservice.org"
+  },
+  {
+    "name": "OpenRailwayMap",
+    "category": "Misc",
+    "default_check": false,
+    "domain": "openrailwaymap.org"
+  },
+  {
+    "name": "OpenAerialMap",
+    "category": "Satellite",
+    "default_check": false,
+    "domain": "openaerialmap.org"
+  },
+  {
+    "name": "Launch RapiD editor",
+    "category": "OpenStreetMap",
+    "default_check": false,
+    "domain": "mapwith.ai",
+    "description": "Facebook AI assisted OSM editor"
+  },
+  {
+    "name": "waze",
+    "category": "Router",
+    "default_check": false,
+    "domain": "waze.com",
+    "description": "Crowdsourced route navigation map"
+  },
+  {
+    "name": "here maps",
+    "category": "Router",
+    "default_check": false,
+    "domain": "here.com"
+  },
+  {
+    "name": "wikimap",
+    "category": "POI",
+    "default_check": true,
+    "domain": "wikimap.wiki",
+    "description": "Wikipedia POI"
+  },
+  {
+    "name": "wikimapia",
+    "category": "POI",
+    "default_check": false,
+    "domain": "wikimapia.org",
+    "description": "multilingual open-content collaborative map"
+  },
+  {
+    "name": "Copernix (POI)",
+    "category": "POI",
+    "default_check": false,
+    "domain": "copernix.io",
+    "description": "Show POIs from Wikipedia"
+  },
+  {
+    "name": "GeoHack",
+    "category": "POI",
+    "default_check": true,
+    "domain": "wmflabs.org",
+    "description": "Map links for Wikipedia articles"
+  },
+  {
+    "name": "Google Earth",
+    "category": "Satellite",
+    "default_check": true,
+    "domain": "earth.google.com"
+  },
+  {
+    "name": "ArcGIS Wayback",
+    "category": "Satellite",
+    "default_check": true,
+    "domain": "arcgis.com",
+    "description": "Historic satellite images since 2014"
+  },
+  {
+    "name": "OpenGeofiction",
+    "category": "Misc",
+    "default_check": false,
+    "domain": "opengeofiction.net",
+    "description": "Crowdsoured fictional map"
+  },
+  {
+    "name": "Twitter",
+    "category": "Misc",
+    "default_check": false,
+    "domain": "twitter.com",
+    "description": "Twitter location based search"
+  },
+  {
+    "name": "flickr",
+    "category": "Misc",
+    "default_check": true,
+    "domain": "flickr.com",
+    "description": "Geotagged image search"
+  },
+  {
+    "name": "OpenStreetMap Analytics",
+    "category": "OpenStreetMap",
+    "default_check": false,
+    "domain": "osm-analytics.org",
+    "description": "Analyse when/who edited the OSM data in a specific region"
+  },
+  {
+    "name": "FIRMS (Fire)",
+    "category": "Weather, Science",
+    "default_check": false,
+    "domain": "nasa.gov",
+    "description": "Realtime fire information of satellite observation"
+  },
+  {
+    "name": "OpenStreetBrowser",
+    "category": "POI",
+    "default_check": true,
+    "domain": "openstreetbrowser.org",
+    "description": "OSM POI viewer"
+  },
+  {
+    "name": "Kontur",
+    "category": "OpenStreetMap",
+    "default_check": false,
+    "domain": "disaster.ninja",
+    "description": "See most active OSM contributor"
+  },
+  {
+    "name": "PeakFinder",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "peakfinder.org",
+    "description": "Mountain landscape view map"
+  },
+  {
+    "name": "Latest OSM Edits per Tile",
+    "category": "OpenStreetMap",
+    "default_check": false,
+    "domain": "neis-one.org",
+    "description": "Latest OpenStreetMap Edits per Tile"
+  },
+  {
+    "name": "ViaMichelin",
+    "category": "Router",
+    "default_check": false,
+    "domain": "viamichelin.com",
+    "description": "Michelin Travel map"
+  },
+  {
+    "name": "OpenSnowMap",
+    "category": "Winter",
+    "default_check": true,
+    "domain": "opensnowmap.org",
+    "description": "Winter sports map"
+  },
+  {
+    "name": "OpenCycleMap",
+    "category": "Cycling",
+    "default_check": true,
+    "domain": "opencyclemap.org",
+    "description": "Cycling map"
+  },
+  {
+    "name": "Historic Place",
+    "category": "POI",
+    "default_check": true,
+    "domain": "historic.place",
+    "description": "Historic objects"
+  },
+  {
+    "name": "yelp",
+    "category": "POI",
+    "default_check": false,
+    "domain": "yelp.com",
+    "description": "Local reviews"
+  },
+  {
+    "name": "OpenSeaMap",
+    "category": "Water",
+    "default_check": true,
+    "domain": "openseamap.org",
+    "description": "focus on nautical info"
+  },
+  {
+    "name": "i-boating",
+    "category": "Water",
+    "default_check": true,
+    "domain": "gpsnauticalcharts.com",
+    "description": "Marine charts"
+  },
+  {
+    "name": "USGS earthquakes",
+    "category": "Weather, Science",
+    "default_check": false,
+    "domain": "usgs.gov",
+    "description": "Latest earthquakes"
+  },
+  {
+    "name": "OpenHistoricalMap",
+    "category": "Misc",
+    "default_check": false,
+    "domain": "openhistoricalmap.org",
+    "description": "Crowedsourced Historical map"
+  },
+  {
+    "name": "ÖPNVKarte",
+    "category": "Misc",
+    "default_check": false,
+    "domain": "xn--pnvkarte-m4a.de",
+    "description": "Public transport map"
+  },
+  {
+    "name": "Trail Router",
+    "category": "Router",
+    "default_check": true,
+    "domain": "trailrouter.com",
+    "description": "Quick Outdoor Roundtrips"
+  },
+  {
+    "name": "cmap.dev Hazard",
+    "category": "Weather, Science",
+    "default_check": false,
+    "domain": "cmap.dev",
+    "description": "Realtime disaster damage estimation"
+  },
+  {
+    "name": "Sea Beacons",
+    "category": "Water",
+    "default_check": true,
+    "domain": "schmirler.de",
+    "description": "Lighthouse map"
+  },
+  {
+    "name": "Level0 Editor",
+    "category": "OpenStreetMap",
+    "default_check": false,
+    "domain": "level0.osmz.ru",
+    "description": "low-level OSM Editor"
+  },
+  {
+    "name": "OsmAnd",
+    "category": "Outdoor",
+    "default_check": false,
+    "domain": "osmand.net",
+    "description": ""
+  },
+  {
+    "name": "Waze Editor",
+    "category": "OpenStreetMap",
+    "default_check": false,
+    "domain": "waze.com",
+    "description": "Maintain the waze maps"
+  },
+  {
+    "name": "My-Heat Search Map",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "my-heat.b05ch.dev",
+    "description": "My-Heat Search Map"
+  },
+  {
+    "name": "My-Heat Photo Map",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "my-heat.b05ch.dev",
+    "description": "My-Heat Photo Map"
+  },
+  {
+    "name": "Peakvisor",
+    "category": "Outdoor",
+    "default_check": true,
+    "domain": "peakvisor.com",
+    "description": "3D View Panorama"
+  }
+]

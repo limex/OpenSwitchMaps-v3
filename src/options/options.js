@@ -1,4 +1,3 @@
-import { filter, groupBy } from 'lodash-es';
 import Vue from 'vue';
 import Options from './Options.vue';
 

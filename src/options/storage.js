@@ -1,20 +1,14 @@
-import { map, zipObject, extend } from 'lodash-es';
 const Vue = require('vue').default;
-const { getAllMaps } = require('../maps');
+const { getMapMetadata } = require('../map-catalog');
 
 const storage = chrome.storage;
 const storageArea = storage.sync || storage.local;
 
-const mapNames = map(getAllMaps(), 'name');
-
-const mapChecks = map(getAllMaps(), function (map){
-	if ('default_check' in map) {
-		return map['default_check'];
-	} else {
-		return true;
-	};
-});
-const enabledMaps = Vue.observable(zipObject(mapNames, mapChecks));
+const enabledMaps = Vue.observable(Object.fromEntries(
+  getMapMetadata().map((map) => [
+    map.name, 'default_check' in map ? map.default_check : true,
+  ])
+));
 
 init();
 
@@ -26,7 +20,7 @@ module.exports = {
 
 function init() {
   storageArea.get('enabledMaps', (stored) => {
-    extend(enabledMaps, stored.enabledMaps);
+    Object.assign(enabledMaps, stored.enabledMaps);
   });
   storage.onChanged.addListener(onChanged);
 }
@@ -38,6 +32,6 @@ function setMapEnabled(map, enabled) {
 
 function onChanged(changes) {
   if (changes.enabledMaps && changes.enabledMaps.newValue) {
-    extend(enabledMaps, changes.enabledMaps.newValue);
+    Object.assign(enabledMaps, changes.enabledMaps.newValue);
   }
 }

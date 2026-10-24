@@ -31,4 +31,15 @@ You get settings for `clientId, clientSecret, refreshToken & extensionId`
 
 ## Extract Supported maps to MD
 
-`node extract-maps.js` creates `maps-list.md`
+`node extract-maps.js` creates `maps-list.md` from `src/map-metadata.json`.
+
+## Map definitions
+
+Names, categories, domains, descriptions, and default visibility live in
+`src/map-metadata.json`. URL generators and parsers live in `src/maps.js`,
+joined to that metadata by the exact map name. Add entries to both files when
+adding a service. Options and storage import the lightweight `src/map-catalog.js`
+so they do not load URL conversion code or `proj4`.
+
+Run `npm test` and the browser round trips described in `tests/README.md` after
+changing map definitions.

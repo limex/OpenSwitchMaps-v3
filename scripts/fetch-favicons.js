@@ -2,7 +2,7 @@ const fs = require("fs/promises");
 const https = require("https");
 const path = require("path");
 
-const mapsPath = path.join(__dirname, "..", "src", "maps.js");
+const mapsPath = path.join(__dirname, "..", "src", "map-metadata.json");
 const outputDirectory = path.join(__dirname, "..", "src", "favicons");
 
 function fetchFavicon(domain, url, redirectsRemaining = 3) {
@@ -45,14 +45,8 @@ function fetchFavicon(domain, url, redirectsRemaining = 3) {
 }
 
 async function main() {
-  const maps = await fs.readFile(mapsPath, "utf8");
-  const domains = [
-    ...new Set(
-      [...maps.matchAll(/^\s*domain:\s*["']([^"']+)["'],?$/gm)].map(
-        (match) => match[1]
-      )
-    ),
-  ].sort();
+  const maps = JSON.parse(await fs.readFile(mapsPath, "utf8"));
+  const domains = [...new Set(maps.map((map) => map.domain))].sort();
 
   await fs.mkdir(outputDirectory, { recursive: true });
 
