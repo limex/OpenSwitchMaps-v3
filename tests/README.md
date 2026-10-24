@@ -1,5 +1,17 @@
 # Map round-trip regression tests
 
+## Camping.Info worker fix — 2026-10-24
+
+Build 1.8.22 guards the bounding-box helper's screen access: background URL
+recognition uses a fallback height, while popup navigation uses the real screen.
+Direct CDP verification in Chrome Beta confirmed the supplied Camping.Info URL
+matches in the service worker without `screen`. The real toolbar popup switched
+it to Google Maps at latitude 53.6978, longitude 9.4986, zoom 13, calculated using
+the popup's actual available screen height of 1,351 pixels. The temporary tab was
+closed. All five source tests and the build passed. The separate external
+deployment copy was denied by the filesystem sandbox; Beta loaded the repository
+build directly.
+
 ## Options sync verification — 2026-10-24
 
 Build 1.8.16 explicitly uses `chrome.storage.sync` for map selections and ignores

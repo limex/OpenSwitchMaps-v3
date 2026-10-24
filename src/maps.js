@@ -103,7 +103,9 @@ function bboxToLatLonZoom(minlon, minlat, maxlon, maxlat) {
   const lon = (Number(minlon) + Number(maxlon)) / 2.0;
   const lat = (Number(minlat) + Number(maxlat)) / 2.0;
   const part = (Number(maxlat) - Number(minlat)) / 360.0;
-  const height = screen.availHeight;
+  // Background URL recognition only needs a match; workers have no screen.
+  // The popup recalculates zoom with the actual screen height when switching.
+  const height = typeof screen === 'undefined' ? 1080 : screen.availHeight;
   const tile_part = (part * 256) / height;
   const zoom = Math.log(tile_part) / Math.log(0.5); //0.5^zoom=part
   return [lat, lon, zoom];
@@ -683,11 +685,11 @@ const maps_raw = [
     },
     getLatLonZoom(url) {
       const match = url.match(
-        /camping\.info\/.*?area=(-?\d[0-9.]*)%2C(-?\d[0-9.]*)%2C(-?\d[0-9.]*)%2C(-?\d[0-9.]*)&zl=(\d{1,2})/
+        /camping\.info\/.*?area=(-?\d[0-9.]*)%2C(-?\d[0-9.]*)%2C(-?\d[0-9.]*)%2C(-?\d[0-9.]*)/
       );
       if (match) {
-        let [, minlon, minlat, maxlon, maxlat, zoom] = match;
-        let [lat, lon, dummy] = bboxToLatLonZoom(
+        let [, minlon, minlat, maxlon, maxlat] = match;
+        let [lat, lon, zoom] = bboxToLatLonZoom(
           minlon,
           minlat,
           maxlon,
@@ -1667,7 +1669,7 @@ const maps_raw = [
     },
     getLatLonZoom(url) {
       const match = url.match(
-        /macrostrat\.org\/map\/.*#x=([0-9.]+)&y=(-?\d[0-9.]+)&z=(-?\d[0-9.]+)/
+        /macrostrat\.org\/map\/?.*#x=([0-9.]+)&y=(-?\d[0-9.]+)&z=(-?\d[0-9.]+)/
       );
       if (match) {
         let [, lon, lat, zoom] = match;
@@ -2349,10 +2351,10 @@ const maps_raw = [
     },
     getLatLonZoom(url) {
       const match = url.match(
-        /map\.openseamap\.org\/\?zoom=(-?\d[0-9.]*)&lon=(-?\d[0-9.]*)&lat=(-?\d[0-9.]*)/
+        /map\.openseamap\.org\/\?zoom=(-?\d[0-9.]*)&lat=(-?\d[0-9.]*)&lon=(-?\d[0-9.]*)/
       );
       if (match) {
-        let [, zoom, lon, lat] = match;
+        let [, zoom, lat, lon] = match;
         zoom = Math.round(Number(zoom));
         return [lat, lon, zoom];
       }
