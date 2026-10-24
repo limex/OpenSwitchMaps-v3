@@ -1,6 +1,6 @@
 {
   "name": "openswitchmapslimex",
-  "version": "1.8.15",
+  "version": "1.8.24",
   "description": "Switch map services and Tools for OpenStreetMap contributors",
   "scripts": {
     "test": "node --test tests/map-roundtrips.test.cjs",
